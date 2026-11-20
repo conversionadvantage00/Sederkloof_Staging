@@ -9,13 +9,25 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Our Rooms | Sederkloof Lodge">
   <meta property="og:description" content="Luxury self-catering chalets, safari tents and a bush cottage in the Baviaanskloof.">
-  <meta property="og:image" content="https://sederklooflodge.co.za/assets/images/Branding/01.webp">
+  <meta property="og:image" content="https://sederklooflodge.co.za/assets/images/social/sederkloof-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sederkloof Lodge chalets on a hillside in the Baviaanskloof mountains">
+  <meta property="og:site_name" content="Sederkloof Lodge">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#2a241f">
   <link rel="icon" href="assets/images/Branding/03.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>/* hide reveal content before first paint; main.js takes over (falls back to visible if it never loads) */
+    if (!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) && "IntersectionObserver" in window) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove("motion"); }, 4000);
+    }
+  </script>
 
   <script>
     /* Analytics only on the live domain; every other host (GitHub Pages staging, localhost) gets noindex instead. */
@@ -247,7 +259,7 @@
     <a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
   </div>
 
-  <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+  <dialog id="lightbox" data-lenis-prevent class="lightbox" aria-label="Image viewer">
     <button class="dialog__close" data-close aria-label="Close">&times;</button>
     <img src="data:," alt="">
     <p class="lightbox__caption"></p>
@@ -255,6 +267,7 @@
     <button class="lightbox__nav lightbox__next" aria-label="Next image">&#8250;</button>
   </dialog>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
