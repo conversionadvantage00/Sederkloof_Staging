@@ -580,6 +580,14 @@ dialog[open] .detail__body > :nth-child(n+4) { animation-delay: 0.54s; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 .dialog__close:hover { background: var(--white); }
+/* Detail pop-up: the panel itself never scrolls; only its content does. The close button is pinned
+   to the panel corner, so it can't jitter or slide under the rounded edge (it used to be sticky inside
+   the scrolling panel, which glitched on iPhone). */
+#detail[open] { display: flex; flex-direction: column; overflow: hidden; }
+#detail .detail__content { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; outline: none; }
+#detail .dialog__close { position: absolute; top: 12px; right: 12px; margin: 0; float: none; }
+/* while a pop-up is open the page behind stays still (iOS otherwise scrolls it when you touch the dark area) */
+html:has(dialog[open]), html:has(dialog[open]) body { overflow: hidden; }
 .detail__media { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(70%, 1fr); gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--ink); }
 .detail__media img { width: 100%; max-height: 440px; object-fit: cover; scroll-snap-align: start; }
 .detail__media--single { display: block; }
@@ -728,13 +736,18 @@ html { -webkit-tap-highlight-color: transparent; } /* no grey flash on tap */
     width: 100%; max-width: 100%; margin: auto 0 0; max-height: 90svh;
     border-radius: 22px 22px 0 0;
   }
-  dialog:not(.lightbox)[open] { animation: sheet-in 1s var(--ease-feather) both; }
+  dialog:not(.lightbox)[open] { animation: sheet-in 0.9s var(--ease-feather) both; }
   dialog:not(.lightbox).is-closing { animation: sheet-out 0.48s var(--ease-glide) both; }
-  dialog:not(.lightbox).is-dragging { animation: none; transition: none; }
-  dialog:not(.lightbox).is-settling { transition: transform 0.6s var(--ease-feather); }
+  /* one smooth movement on phones: the sheet glides up with its content already in place
+     (the staggered fade inside, plus the backdrop blur, made iPhones stutter) */
+  dialog[open] .detail__content > :not(.detail__body),
+  dialog[open] .detail__body > * { animation: none; }
+  dialog::backdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* no rubber-band stretch inside the sheet, so no empty gap opens above the photo */
+  #detail .detail__content { overscroll-behavior: none; }
 }
 @keyframes sheet-in { from { transform: translate3d(0, 100%, 0); } to { transform: none; } }
-@keyframes sheet-out { from { transform: var(--sheet-from, none); } to { transform: translate3d(0, 100%, 0); } }
+@keyframes sheet-out { from { transform: none; } to { transform: translate3d(0, 100%, 0); } }
 
 /* ---------- Page transitions ----------
    Browsers with cross-document View Transitions (Chrome/Edge 126+, Safari 18.2+): the old page
