@@ -269,7 +269,11 @@ p { margin: 0 0 1.1em; }
   position: absolute; z-index: 1; left: 50%; bottom: 22px; transform: translateX(-50%);
   width: 1px; height: 44px; background: rgba(255,255,255,0.6);
 }
-@media (max-width: 700px) { .scroll-cue { display: none; } }
+@media (max-width: 700px) {
+  .scroll-cue { display: none; }
+  /* on phones the hero eyebrow wraps to two lines and the leading hairline just looks like a stray dash */
+  .hero__content .eyebrow::before { display: none; }
+}
 
 /* ---------- Sections ---------- */
 .section { padding: clamp(64px, 10vw, 120px) 0; }
