@@ -161,7 +161,8 @@ p { margin: 0 0 1.1em; }
 .site-header.is-hidden { transform: translate3d(0, -100%, 0); box-shadow: none; }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 
-.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
+/* min-width:0 + the toggle's flex-shrink:0 mean a long brand can never push the menu button off-screen */
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; min-width: 0; }
 .brand:hover { color: inherit; }
 .brand img {
   width: 42px; height: 42px; object-fit: contain;
@@ -174,7 +175,8 @@ p { margin: 0 0 1.1em; }
   display: flex; flex-direction: column; gap: 7px; line-height: 1; white-space: nowrap;
   font-size: 0.98rem; font-weight: 400; letter-spacing: 0.34em; text-transform: uppercase;
 }
-.brand__name small { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.36em; opacity: 0.72; }
+.brand__name small { display: block; font-size: 0.56rem; font-weight: 600; letter-spacing: 0.36em; opacity: 0.72; }
+.brand img { flex-shrink: 0; }
 
 .nav { display: flex; align-items: center; gap: clamp(22px, 2.6vw, 38px); }
 .nav .btn { white-space: nowrap; padding: 0.95em 1.7em; font-size: 0.7rem; }
@@ -197,7 +199,7 @@ p { margin: 0 0 1.1em; }
 
 .nav-toggle {
   display: none; background: none; border: 0; color: inherit; cursor: pointer;
-  width: 44px; height: 44px; padding: 10px; margin-right: -10px;
+  width: 44px; height: 44px; padding: 10px; margin-right: -10px; flex-shrink: 0;
 }
 .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
   display: block; width: 24px; height: 1.5px; background: currentColor; position: relative;
