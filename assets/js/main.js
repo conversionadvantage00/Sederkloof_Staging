@@ -306,7 +306,57 @@
     if (!dlg.open || dlg.classList.contains("is-closing")) return;
     if (reduceMotion) { dlg.close(); return; }
     dlg.classList.add("is-closing");
-    setTimeout(function () { dlg.classList.remove("is-closing"); dlg.close(); }, 480);
+    setTimeout(function () {
+      dlg.classList.remove("is-closing", "is-dragging", "is-settling");
+      dlg.style.transform = ""; dlg.style.removeProperty("--sheet-from");
+      dlg.close();
+    }, 480);
+  }
+
+  /* Phones: the pop-up is a bottom sheet; pull it down from the top to close it */
+  var phone = window.matchMedia("(max-width: 700px)");
+  if (detail && !reduceMotion) {
+    var startY = null, dy = 0;
+    detail.addEventListener("touchstart", function (e) {
+      startY = (phone.matches && detail.scrollTop <= 0 && e.touches.length === 1) ? e.touches[0].clientY : null;
+      dy = 0;
+    }, { passive: true });
+    detail.addEventListener("touchmove", function (e) {
+      if (startY === null) return;
+      dy = e.touches[0].clientY - startY;
+      if (dy <= 0) { detail.classList.remove("is-dragging"); detail.style.transform = ""; return; }
+      e.preventDefault();
+      detail.classList.remove("is-settling");
+      detail.classList.add("is-dragging");
+      detail.style.transform = "translate3d(0," + Math.round(dy * 0.9) + "px,0)"; // slight resistance
+    }, { passive: false });
+    detail.addEventListener("touchend", function () {
+      if (startY === null || !detail.classList.contains("is-dragging")) { startY = null; return; }
+      startY = null;
+      if (dy > 110) {
+        detail.style.setProperty("--sheet-from", detail.style.transform);
+        detail.classList.remove("is-dragging");
+        closeDialog(detail);
+      } else {
+        detail.classList.remove("is-dragging");
+        detail.classList.add("is-settling");
+        detail.style.transform = "";
+        setTimeout(function () { detail.classList.remove("is-settling"); }, 650);
+      }
+    });
+  }
+
+  /* Phones: the floating Call / Book bar glides in once you're past the hero */
+  var bookBar = $(".mobile-book");
+  if (bookBar) {
+    var heroEl = $(".hero");
+    var onBookScroll = function () {
+      var past = window.scrollY > (heroEl ? heroEl.offsetHeight * 0.6 : 200);
+      bookBar.classList.toggle("is-shown", past && !doc.body.classList.contains("nav-open"));
+    };
+    onBookScroll();
+    window.addEventListener("scroll", onBookScroll, { passive: true });
+    if (toggle) toggle.addEventListener("click", function () { setTimeout(onBookScroll, 0); });
   }
   $$("dialog").forEach(function (dlg) {
     $$("[data-close]", dlg).forEach(function (b) { b.addEventListener("click", function () { closeDialog(dlg); }); });

@@ -656,19 +656,59 @@ dialog[open] .detail__body > :nth-child(n+4) { animation-delay: 0.54s; }
 .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; color: #968a7d; }
 .footer-bottom p { margin: 0 0 0.5em; }
 
-/* ---------- Mobile booking bar ---------- */
+/* ---------- Mobile booking bar ----------
+   A floating rounded bar that glides up once you're past the hero (main.js adds .is-shown)
+   and tucks away while the menu is open, instead of sitting on screen from the first frame. */
 .mobile-book {
-  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
-  grid-template-columns: 1fr 1fr; background: var(--ink);
-  box-shadow: 0 -8px 20px -10px rgba(0,0,0,0.4);
-  padding-bottom: env(safe-area-inset-bottom);
+  display: none; position: fixed; z-index: 40;
+  left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+  grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 999px;
+  background: rgba(42, 36, 31, 0.88);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 14px 34px -14px rgba(20,15,10,0.6);
+  opacity: 0; transform: translate3d(0, calc(100% + 24px), 0);
+  transition: transform 0.9s var(--ease-glide), opacity 0.7s var(--ease-glide);
 }
-.mobile-book a { text-align: center; padding: 16px 8px; color: var(--white); text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.mobile-book.is-shown { opacity: 1; transform: none; transition: transform 1.1s var(--ease-feather), opacity 0.8s var(--ease-glide); }
+.mobile-book a { text-align: center; padding: 15px 8px; color: var(--white); text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; transition: background-color 0.5s var(--ease-glide); }
 .mobile-book a + a { background: var(--brown); }
+.mobile-book a:active { background-color: rgba(255,255,255,0.08); }
+.mobile-book a + a:active { background-color: var(--brown-dark); }
 @media (max-width: 700px) {
   .mobile-book { display: grid; }
-  body { padding-bottom: 52px; }
+  body { padding-bottom: 76px; }
 }
+
+/* ---------- Phones and touch screens: keep the same gentle feel ---------- */
+html { -webkit-tap-highlight-color: transparent; } /* no grey flash on tap */
+@media (hover: none) {
+  /* hover effects "stick" after a tap on touch screens (a card stays zoomed after its pop-up closes): switch them off */
+  .card:hover .card__media img, .room-tile:hover img, .gallery button:hover img { transform: none; }
+  .exp-card:hover img { transform: scale(1.02); }
+  .exp-card:hover::before { opacity: 0; }
+  .exp-card:hover .arrow { background: transparent; border-color: rgba(241,220,198,0.55); transform: none; }
+  .btn:hover { transform: none; }
+  /* a soft press instead: the photo dims slightly while your finger is on it */
+  .card__media img, .room-tile img, .exp-card img, .gallery img { transition: transform 1.4s var(--ease-glide), opacity 0.45s var(--ease-glide); }
+  .card:active .card__media img, .room-tile:active img, .exp-card:active img, .gallery button:active img { opacity: 0.8; }
+  .btn:active { transform: scale(0.97); transition-duration: 0.3s; }
+}
+@media (max-width: 700px) {
+  /* lighter reveal on phones: no blur (it stutters on phone GPUs), shorter drift, same slow timing */
+  .motion .reveal > *, .motion .reveal > :is(h1, h2, h3, p, .eyebrow, .lead, .section-head) { filter: none; transform: translate3d(0, 18px, 0); }
+
+  /* pop-ups become a bottom sheet that glides up from the bottom edge and back down on close */
+  dialog:not(.lightbox) {
+    width: 100%; max-width: 100%; margin: auto 0 0; max-height: 90svh;
+    border-radius: 22px 22px 0 0;
+  }
+  dialog:not(.lightbox)[open] { animation: sheet-in 1s var(--ease-feather) both; }
+  dialog:not(.lightbox).is-closing { animation: sheet-out 0.48s var(--ease-glide) both; }
+  dialog:not(.lightbox).is-dragging { animation: none; transition: none; }
+  dialog:not(.lightbox).is-settling { transition: transform 0.6s var(--ease-feather); }
+}
+@keyframes sheet-in { from { transform: translate3d(0, 100%, 0); } to { transform: none; } }
+@keyframes sheet-out { from { transform: var(--sheet-from, none); } to { transform: translate3d(0, 100%, 0); } }
 
 /* ---------- Page transitions ----------
    Browsers with cross-document View Transitions (Chrome/Edge 126+, Safari 18.2+): the old page
