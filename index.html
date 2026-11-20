@@ -71,8 +71,8 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Sederkloof Lodge home">
-        <img src="assets/images/Branding/02.webp" alt="" width="46" height="46">
-        <span>Sederkloof Lodge</span>
+        <img src="assets/images/Branding/02.webp" alt="" width="42" height="42">
+        <span class="brand__name">Sederkloof<small>Lodge · Baviaanskloof</small></span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
       <nav class="nav" id="site-nav" aria-label="Main">
@@ -147,11 +147,15 @@
     <!-- ============ ACCOMMODATION ============ -->
     <section class="section" id="accommodation">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Luxury Accommodation</span>
-          <h2>Where Comfort Meets the Wild</h2>
-          <p class="lead">Stay in style &amp; serenity.</p>
-          <p>Our exclusive lodge features private stone-and-glass chalets, each thoughtfully designed to maximize panoramic views of the rugged landscape. Each self-catering unit is elegantly furnished, offering comfortable beds, en-suite bathrooms, and private decks where guests can unwind while immersing themselves in the natural surroundings.</p>
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="eyebrow">Luxury Accommodation</span>
+            <h2>Where Comfort Meets the Wild</h2>
+          </div>
+          <div class="section-head__intro">
+            <p class="lead">Stay in style &amp; serenity.</p>
+            <p>Our exclusive lodge features private stone-and-glass chalets, each thoughtfully designed to maximize panoramic views of the rugged landscape. Each self-catering unit is elegantly furnished, offering comfortable beds, en-suite bathrooms, and private decks where guests can unwind while immersing themselves in the natural surroundings.</p>
+          </div>
         </div>
         <div class="grid grid--4 reveal">
           <a class="room-tile" href="rooms.html#aardvarks-entry"><img src="assets/images/Rooms/Aardvark-s-Entry_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Aardvark’s Entry</span></a>
@@ -163,7 +167,7 @@
           <a class="room-tile" href="rooms.html#camp-naguna"><img src="assets/images/Rooms/Camp-Naguna_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Safari tents</small>Camp Naguna</span></a>
           <a class="room-tile" href="rooms.html#bush-cottage"><img src="assets/images/Rooms/Bush-Cottage_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Self-contained cottage</small>Bush Cottage</span></a>
         </div>
-        <div class="btn-row center" style="margin-top:40px">
+        <div class="btn-row" style="margin-top:40px">
           <a class="btn btn--ghost" href="rooms.html">Explore All Rooms</a>
         </div>
       </div>
@@ -194,18 +198,22 @@
     <!-- ============ EXPERIENCES ============ -->
     <section class="section" id="experiences">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Activities &amp; Experiences</span>
-          <h2>Adventure Awaits</h2>
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="eyebrow">Activities &amp; Experiences</span>
+            <h2>Adventure Awaits</h2>
+          </div>
+          <div class="section-head__intro">
           <p class="lead">Explore, discover, and reconnect with nature.</p>
           <p>For those seeking adventure, Sederkloof Lodge offers a range of activities that showcase the beauty of Baviaanskloof. Explore scenic hiking trails that lead to hidden waterfalls and ancient rock art, embark on thrilling 4x4 excursions through rugged mountain passes, or enjoy guided birdwatching tours that reveal the incredible diversity of the region’s avian life. Whether you prefer an active exploration or peaceful relaxation, there’s something for every nature lover.</p>
+          </div>
         </div>
         <div class="exp-grid reveal">
           <button class="exp-card" data-detail="d-hiking">
             <img src="assets/images/Activities/Hiking-Trails_04.webp" alt="" width="410" height="305" loading="lazy">
             <span class="exp-card__body">
               <span class="exp-card__title">Hiking Trails</span>
-              <span class="exp-card__desc">Scenic trails for casual walkers and seasoned hikers, through mountain ranges, deep gorges and rugged terrain.</span>
+              <span class="exp-card__reveal"><span class="exp-card__desc">Scenic trails for casual walkers and seasoned hikers, through mountain ranges, deep gorges and rugged terrain.</span></span>
               <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
             </span>
           </button>
@@ -213,7 +221,7 @@
             <img src="assets/images/Activities/Sewefontein-Fountains_01.webp" alt="" width="410" height="305" loading="lazy">
             <span class="exp-card__body">
               <span class="exp-card__title">Sewefontein Fountains</span>
-              <span class="exp-card__desc">A hidden gem a short drive from the lodge: crystal-clear springs bubbling from the earth.</span>
+              <span class="exp-card__reveal"><span class="exp-card__desc">A hidden gem a short drive from the lodge: crystal-clear springs bubbling from the earth.</span></span>
               <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
             </span>
           </button>
@@ -221,7 +229,7 @@
             <img src="assets/images/Activities/Full-Day-Excursion_01.webp" alt="" width="410" height="305" loading="lazy">
             <span class="exp-card__body">
               <span class="exp-card__title">Full Day Excursion</span>
-              <span class="exp-card__desc">A full day through remote mountain passes, historical sites, hidden caves and breathtaking viewpoints.</span>
+              <span class="exp-card__reveal"><span class="exp-card__desc">A full day through remote mountain passes, historical sites, hidden caves and breathtaking viewpoints.</span></span>
               <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
             </span>
           </button>
@@ -229,7 +237,7 @@
             <img src="assets/images/Activities/Stargazing_01.webp" alt="" width="410" height="305" loading="lazy">
             <span class="exp-card__body">
               <span class="exp-card__title">Stargazing</span>
-              <span class="exp-card__desc">Far from city lights, one of the best stargazing experiences in South Africa.</span>
+              <span class="exp-card__reveal"><span class="exp-card__desc">Far from city lights, one of the best stargazing experiences in South Africa.</span></span>
               <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
             </span>
           </button>
@@ -239,7 +247,7 @@
 
     <!-- ============ CONSERVATION ============ -->
     <section class="section section--dark" id="conservation">
-      <div class="container split">
+      <div class="container split split--reverse">
         <div class="split__media reveal">
           <img src="assets/images/Hero-and-Backgrounds/15.webp" alt="Shaded forest pool along a stream" width="560" height="635" loading="lazy">
         </div>
@@ -257,10 +265,14 @@
     <!-- ============ NATURE GUIDE ============ -->
     <section class="section" id="nature">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Your Nature Guide</span>
-          <h2>The Wild Side of Baviaanskloof</h2>
-          <p class="lead">Wildlife checklists, the region’s plant biomes, and the medicinal plants that grow around the lodge.</p>
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="eyebrow">Your Nature Guide</span>
+            <h2>The Wild Side of Baviaanskloof</h2>
+          </div>
+          <div class="section-head__intro">
+            <p class="lead">Wildlife checklists, the region’s plant biomes, and the medicinal plants that grow around the lodge.</p>
+          </div>
         </div>
 
         <div data-tabs>
@@ -291,6 +303,7 @@
             </button>
           </div>
 
+          <div class="tab-stage">
           <!-- Biodiversity -->
           <div class="tab-panel" role="tabpanel" id="p-wildlife" aria-labelledby="t-wildlife">
             <div class="grid grid--4">
@@ -356,6 +369,7 @@
               <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Glossary-of-Medical-Terms_04.webp" alt="Visitor with binoculars looking over the valley" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Glossary &amp; More Plants</h3><p class="card__latin">Medical terms and 20 more plants found at the lodge</p><button class="text-link" data-detail="d-glossary">Open</button></div></article>
             </div>
           </div>
+          </div><!-- /tab-stage -->
         </div>
       </div>
     </section>
@@ -363,38 +377,43 @@
     <!-- ============ TRAVEL GUIDE ============ -->
     <section class="section section--sand" id="travel">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Travel &amp; Preparation Guide</span>
-          <h2>Before You Go</h2>
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="eyebrow">Travel &amp; Preparation Guide</span>
+            <h2>Before You Go</h2>
+          </div>
+          <div class="section-head__intro">
+            <p class="lead">What to pack, how to get here, and what to expect once you arrive.</p>
+          </div>
         </div>
-        <div class="guide">
-          <article class="reveal">
-            <img src="assets/images/Travel-Preparation-Guide/What-to-Pack_01.webp" alt="Dry riverbed path through the kloof" width="480" height="332" loading="lazy">
-            <div>
+        <div class="grid grid--4 reveal">
+          <article class="card card--guide">
+            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/What-to-Pack_01.webp" alt="Dry riverbed path through the kloof" width="480" height="332" loading="lazy"></div>
+            <div class="card__body">
               <h3>What to Pack</h3>
               <p>Planning a stay at Sederkloof Lodge? You’re in for wide skies, mountain pools, and the sweet sound of nothing. Stick to lightweight layers, as mornings can be crisp and afternoons warm. Bring good hiking shoes or takkies for kloof walks, and don’t forget swimwear for refreshing dips in the rock pools.</p>
               <button class="text-link" data-detail="g-pack">Read more</button>
             </div>
           </article>
-          <article class="reveal">
-            <img src="assets/images/Travel-Preparation-Guide/Getting-to-Sederkloof-Lodge_01.webp" alt="Vehicle parked beside a palm in the mountains" width="480" height="329" loading="lazy">
-            <div>
-              <h3>Getting to Sederkloof Lodge</h3>
+          <article class="card card--guide">
+            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/Getting-to-Sederkloof-Lodge_01.webp" alt="Vehicle parked beside a palm in the mountains" width="480" height="329" loading="lazy"></div>
+            <div class="card__body">
+              <h3>Getting Here</h3>
               <p>Whether you’re coming from Port Elizabeth (around 3.5 hours) or George (about 3 hours), the drive offers winding gravel roads, changing scenery, and the kind of views that make you pull over just to take it in.</p>
               <button class="text-link" data-detail="g-getting">Read more</button>
             </div>
           </article>
-          <article class="reveal">
-            <img src="assets/images/Travel-Preparation-Guide/Is-There-Cell-Signal-in-the-Baviaanskloof_01.webp" alt="Freestanding bath beside open windows with mountain views" width="480" height="320" loading="lazy">
-            <div>
-              <h3>Is There Cell Signal in the Baviaanskloof?</h3>
+          <article class="card card--guide">
+            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/Is-There-Cell-Signal-in-the-Baviaanskloof_01.webp" alt="Freestanding bath beside open windows with mountain views" width="480" height="320" loading="lazy"></div>
+            <div class="card__body">
+              <h3>Cell Signal &amp; Wi-Fi</h3>
               <p>We’ll be straight with you: your phone won’t be doing much out here. And honestly? That’s kind of the point. There’s no Wi-Fi at Sederkloof Lodge either, and it’s deliberate.</p>
               <button class="text-link" data-detail="g-signal">Read more</button>
             </div>
           </article>
-          <article class="reveal">
-            <img src="assets/images/Travel-Preparation-Guide/The-Best-Time-to-Visit_01.webp" alt="The lodge on a sunny hillside" width="480" height="360" loading="lazy">
-            <div>
+          <article class="card card--guide">
+            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/The-Best-Time-to-Visit_01.webp" alt="The lodge on a sunny hillside" width="480" height="360" loading="lazy"></div>
+            <div class="card__body">
               <h3>The Best Time to Visit</h3>
               <p>Whether it’s blooming fynbos or roaring waterfalls, every season in the Baviaanskloof brings its own kind of wonder, and Sederkloof Lodge is ready for it all.</p>
               <button class="text-link" data-detail="g-season">Read more</button>
@@ -407,10 +426,14 @@
     <!-- ============ GALLERY ============ -->
     <section class="section" id="gallery">
       <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Gallery</span>
-          <h2>A Glimpse into Paradise</h2>
-          <p class="lead">Experience Sederkloof in pictures.</p>
+        <div class="section-head reveal">
+          <div class="section-head__title">
+            <span class="eyebrow">Gallery</span>
+            <h2>A Glimpse into Paradise</h2>
+          </div>
+          <div class="section-head__intro">
+            <p class="lead">Experience Sederkloof in pictures.</p>
+          </div>
         </div>
         <div class="gallery reveal">
           <button data-lightbox="gallery" aria-label="Open image 1"><img src="assets/images/Gallery/01.webp" alt="Deck and pool overlooking the valley" width="560" height="635" loading="lazy"></button>

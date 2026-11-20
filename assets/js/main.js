@@ -15,31 +15,59 @@
   var $ = function (sel, ctx) { return (ctx || doc).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || doc).querySelectorAll(sel)); };
 
-  /* ---------- Header: solid after scrolling past hero ---------- */
-  var header = $(".site-header");
-  if (header && !header.classList.contains("site-header--solid")) {
-    var onScroll = function () { header.classList.toggle("is-solid", window.scrollY > 60); };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  /* ---------- Mobile nav ---------- */
-  var toggle = $(".nav-toggle");
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      var open = doc.body.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    $$(".nav a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        doc.body.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root = doc.documentElement;
+
+  /* ---------- Header: frosted after the hero; slips away scrolling down, returns scrolling up ---------- */
+  var header = $(".site-header");
+  if (header) {
+    var lastY = window.scrollY;
+    var onScroll = function () {
+      var y = window.scrollY;
+      if (!header.classList.contains("site-header--solid")) header.classList.toggle("is-solid", y > 40);
+      if (doc.body.classList.contains("nav-open") || doc.querySelector("dialog[open]")) { lastY = y; return; }
+      var d = y - lastY;
+      if (Math.abs(d) < 6) return; // ignore tiny jitters
+      header.classList.toggle("is-hidden", d > 0 && y > window.innerHeight * 0.5);
+      lastY = y;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // keyboard users tabbing into the header always get it back
+    header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
+  }
+
+  /* ---------- Mobile nav (full-screen; links stagger in) ---------- */
+  var toggle = $(".nav-toggle");
+  var setNav = function (open) {
+    doc.body.classList.toggle("nav-open", open);
+    if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { header && header.classList.remove("is-hidden"); pauseScroll(); } else { resumeScroll(); }
+  };
+  if (toggle) {
+    $$(".nav > *").forEach(function (el, i) { el.style.setProperty("--i", i); });
+    toggle.addEventListener("click", function () { setNav(!doc.body.classList.contains("nav-open")); });
+    $$(".nav a").forEach(function (a) { a.addEventListener("click", function () { setNav(false); }); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && doc.body.classList.contains("nav-open")) setNav(false); });
+  }
+
+  /* ---------- Page transitions: fallback fade-out for browsers without cross-document View Transitions ---------- */
+  if (!reduceMotion && !window.CSSViewTransitionRule) {
+    doc.addEventListener("click", function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || !/\.html$|\/$/.test(url.pathname)) return;
+      var norm = function (p) { return p.replace(/index\.html$/, ""); };
+      if (norm(url.pathname) === norm(location.pathname)) return; // same page (anchor links glide instead)
+      e.preventDefault();
+      root.classList.add("is-leaving");
+      setTimeout(function () { location.href = url.href; }, 380);
+    });
+    // coming back via the back button restores the page from cache: make sure it's visible
+    window.addEventListener("pageshow", function () { root.classList.remove("is-leaving"); });
+  }
 
   /* ---------- Smooth scroll (Lenis, kept subtle; touch scrolling stays native) ---------- */
   var lenis = null;
@@ -98,16 +126,55 @@
   window.__revealReady = true;
 
   /* ---------- Tabs ---------- */
+  /* Switching: old panel drifts up and fades (CSS .is-leaving), the stage eases from the old
+     height to the new one, then the new cards feather in one by one (.is-entering removed). */
+  var GLIDE = "cubic-bezier(0.45, 0, 0.15, 1)";
   $$("[data-tabs]").forEach(function (wrap) {
     var buttons = $$('[role="tab"]', wrap);
+    var stage = $(".tab-stage", wrap);
+    var panelOf = function (b) { return doc.getElementById(b.getAttribute("aria-controls")); };
+    var timer = null;
+    buttons.forEach(function (b) {
+      var p = panelOf(b);
+      if (p) $$(".grid > *", p).forEach(function (c, i) { c.style.setProperty("--i", Math.min(i, 8)); });
+    });
+
     var select = function (btn) {
+      var current = null;
       buttons.forEach(function (b) {
         var on = b === btn;
         b.setAttribute("aria-selected", on ? "true" : "false");
         b.tabIndex = on ? 0 : -1;
-        var panel = doc.getElementById(b.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !on;
+        var p = panelOf(b);
+        if (p && !p.hidden && !on) current = p;
       });
+      var next = panelOf(btn);
+      if (!next || (!current && !next.hidden && !timer)) return;
+
+      // a switch still in progress is finished instantly before starting the next
+      if (timer) { clearTimeout(timer); timer = null; }
+      $$(".tab-panel", wrap).forEach(function (p) { p.classList.remove("is-leaving", "is-entering"); if (p !== next) p.hidden = true; });
+
+      if (reduceMotion || !stage || !current) { next.hidden = false; return; }
+
+      current.hidden = false;
+      current.classList.add("is-leaving");
+      timer = setTimeout(function () {
+        timer = null;
+        var from = stage.offsetHeight;
+        current.hidden = true;
+        current.classList.remove("is-leaving");
+        next.classList.add("is-entering");
+        next.hidden = false;
+        var to = stage.offsetHeight;
+        if (stage.animate && Math.abs(to - from) > 2) {
+          stage.classList.add("is-resizing");
+          var anim = stage.animate([{ height: from + "px" }, { height: to + "px" }], { duration: 750, easing: GLIDE });
+          anim.onfinish = anim.oncancel = function () { stage.classList.remove("is-resizing"); };
+        }
+        void next.offsetWidth; // commit the hidden starting state before letting the cards in
+        requestAnimationFrame(function () { next.classList.remove("is-entering"); });
+      }, 420);
     };
     buttons.forEach(function (b, i) {
       b.addEventListener("click", function () { select(b); });
@@ -234,10 +301,17 @@
     });
   }
 
-  /* Close buttons + click on backdrop */
+  /* Close buttons, backdrop click and Escape: fade out gently (CSS .is-closing), then close */
+  function closeDialog(dlg) {
+    if (!dlg.open || dlg.classList.contains("is-closing")) return;
+    if (reduceMotion) { dlg.close(); return; }
+    dlg.classList.add("is-closing");
+    setTimeout(function () { dlg.classList.remove("is-closing"); dlg.close(); }, 480);
+  }
   $$("dialog").forEach(function (dlg) {
-    $$("[data-close]", dlg).forEach(function (b) { b.addEventListener("click", function () { dlg.close(); }); });
-    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    $$("[data-close]", dlg).forEach(function (b) { b.addEventListener("click", function () { closeDialog(dlg); }); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDialog(dlg); });
+    dlg.addEventListener("cancel", function (e) { e.preventDefault(); closeDialog(dlg); });
     dlg.addEventListener("close", function () {
       if (dlg === detail && lastTrigger) { lastTrigger.focus({ preventScroll: true }); lastTrigger = null; }
       resumeScroll();
