@@ -1,4 +1,4 @@
-# Sederkloof Lodge website (v2)
+# Sederkloof Lodge website (v3)
 
 Static rebuild of [sederklooflodge.co.za](https://sederklooflodge.co.za/), staged on GitHub Pages.
 
