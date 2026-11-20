@@ -38,18 +38,64 @@
     });
   }
 
-  /* ---------- Reveal on scroll ---------- */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = doc.documentElement;
+
+  /* ---------- Smooth scroll (Lenis, kept subtle; touch scrolling stays native) ---------- */
+  var lenis = null;
+  if (!reduceMotion && typeof window.Lenis === "function") {
+    lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 0.95, smoothWheel: true });
+    window.sederkloofLenis = lenis; // handy for debugging in the console
+    var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+
+    // In-page anchor links glide instead of jumping
+    var samePage = function (u) { return u.pathname.replace(/index\.html$/, "") === location.pathname.replace(/index\.html$/, ""); };
+    doc.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="#"]');
+      if (!a || a.target === "_blank") return;
+      var url = new URL(a.href, location.href);
+      if (!samePage(url) || !url.hash) return;
+      var target = doc.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      e.preventDefault();
+      var offset = (header ? header.offsetHeight : 0) + 12;
+      lenis.scrollTo(target, { offset: -offset, duration: 1.4 });
+      history.replaceState(null, "", url.hash);
+    });
+  }
+  var pauseScroll = function () { if (lenis) lenis.stop(); };
+  var resumeScroll = function () { if (lenis && !doc.querySelector("dialog[open]")) lenis.start(); };
+
+  /* ---------- Feather reveal: entrance and exit as sections scroll in and out ---------- */
   var reveals = $$(".reveal");
-  if ("IntersectionObserver" in window) {
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    root.classList.add("motion");
+    reveals.forEach(function (el) {
+      Array.prototype.forEach.call(el.children, function (child, i) { child.style.setProperty("--i", Math.min(i, 8)); });
+    });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+        var el = e.target;
+        if (e.isIntersecting) {
+          el.classList.add("is-visible");
+          el.classList.remove("is-above");
+        } else {
+          el.classList.remove("is-visible");
+          el.classList.toggle("is-above", e.boundingClientRect.top < 0);
+        }
       });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    reveals.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: "-4% 0px -10% 0px", threshold: 0 });
+    reveals.forEach(function (el) {
+      // anything already on screen at load shows straight away (doesn't wait for the observer)
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9 && r.bottom > 0) el.classList.add("is-visible");
+      io.observe(el);
+    });
   } else {
-    reveals.forEach(function (el) { el.classList.add("is-visible"); });
+    root.classList.remove("motion");
   }
+  window.__revealReady = true;
 
   /* ---------- Tabs ---------- */
   $$("[data-tabs]").forEach(function (wrap) {
@@ -133,6 +179,7 @@
     lastTrigger = trigger || null;
     detail.showModal();
     detail.scrollTop = 0;
+    pauseScroll();
   }
 
   $$("[data-detail]").forEach(function (btn) {
@@ -161,6 +208,7 @@
     lbSet = set; showLb(i);
     $$(".lightbox__nav", lightbox).forEach(function (b) { b.hidden = set.length < 2; });
     if (!lightbox.open) lightbox.showModal();
+    pauseScroll();
   }
 
   doc.addEventListener("click", function (e) {
@@ -191,7 +239,8 @@
     $$("[data-close]", dlg).forEach(function (b) { b.addEventListener("click", function () { dlg.close(); }); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener("close", function () {
-      if (dlg === detail && lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+      if (dlg === detail && lastTrigger) { lastTrigger.focus({ preventScroll: true }); lastTrigger = null; }
+      resumeScroll();
     });
   });
 
