@@ -3,13 +3,10 @@
   "use strict";
 
   /* ------------------------------------------------------------------
-     Contact form endpoint.
-     The old site posted to the CA Microsites API, which a static site
-     can't use. Paste a form-service URL here (e.g. Formspree, Basin,
-     Web3Forms, Netlify Forms) to make the form send. Until then the
-     form tells visitors to phone or book online instead.
+     Contact form: opens the visitor's email app with the enquiry
+     filled in, addressed to ENQUIRY_EMAIL.
   ------------------------------------------------------------------ */
-  var FORM_ENDPOINT = "";
+  var ENQUIRY_EMAIL = "hbekker@moonstoneinfo.com,simone@conversionadvantage.com";
 
   var doc = document;
   var $ = function (sel, ctx) { return (ctx || doc).querySelector(sel); };
@@ -339,30 +336,38 @@
   var form = doc.getElementById("enquiry-form");
   if (form) {
     var status = $(".form__status", form);
+    var phone = '<a href="tel:+27877004334">+27 87 700 4334</a>';
+    var book = '<a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">book online</a>';
+    var val = function (n) { return form[n] ? form[n].value.trim() : ""; };
+
+    var show = function (html) { status.innerHTML = html; status.hidden = false; };
+
+    var mailtoLink = function () {
+      var lines = [
+        "Name: " + val("name"),
+        "Email: " + val("email"),
+        "Phone: " + val("phone"),
+        "Interested in: " + (val("accommodation") || "Any / not sure"),
+        "Arrival: " + val("arrival"),
+        "Departure: " + val("departure"),
+        "",
+        val("message")
+      ];
+      return "mailto:" + ENQUIRY_EMAIL +
+        "?subject=" + encodeURIComponent("Website enquiry - " + val("name")) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (form.website && form.website.value) return; // honeypot
-      var phone = '<a href="tel:+27877004334">+27 87 700 4334</a>';
-      var book = '<a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">book online</a>';
-
-      if (!FORM_ENDPOINT) {
-        status.innerHTML = "Our online enquiry form isn't connected yet. Please call us on " + phone + " or " + book + ".";
-        status.hidden = false;
+      if (val("website")) return; // honeypot: bots fill this, people don't
+      if (!ENQUIRY_EMAIL) {
+        show("Please call us on " + phone + " or " + book + ".");
         return;
       }
-      var btn = $('button[type="submit"]', form);
-      btn.disabled = true;
-      status.hidden = true;
-      fetch(FORM_ENDPOINT, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-        .then(function (r) {
-          if (!r.ok) throw new Error("bad status");
-          form.reset();
-          status.textContent = "Thank you, your enquiry has been sent. We'll be in touch soon.";
-        })
-        .catch(function () {
-          status.innerHTML = "Sorry, something went wrong sending your message. Please call us on " + phone + " or " + book + ".";
-        })
-        .then(function () { status.hidden = false; btn.disabled = false; });
+      var href = mailtoLink();
+      show('Opening your email app… If nothing happens, <a href="' + href + '">click here</a>, call us on ' + phone + " or " + book + ".");
+      window.location.href = href;
     });
   }
 

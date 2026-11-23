@@ -1,6 +1,6 @@
 # Sederkloof Lodge website (v3)
 
-Static rebuild of [sederklooflodge.co.za](https://sederklooflodge.co.za/), staged on GitHub Pages.
+Static rebuild of [sederklooflodge.co.za](https://sederklooflodge.co.za/), hosted on Cloudflare Pages (auto-deploys from this repo).
 
 ## Pages
 
@@ -22,20 +22,23 @@ assets/
 
 No build step, no dependencies. Open `index.html` locally or push the folder as-is.
 
-## Deploying to GitHub Pages
+## Hosting (Cloudflare Pages)
 
-1. Push the contents of this folder to the root of the repo.
-2. Repo **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*, Branch = `main`, folder = `/ (root)`.
-3. The site appears at `https://<user>.github.io/<repo>/`.
-
-`.nojekyll` is included so GitHub serves every file as-is.
+- Code lives in GitHub; Cloudflare Pages deploys every push to `main` automatically.
+- Pages settings: Framework preset = None, Build command = (blank), Output directory = `/`.
+- Live address: `https://www.sederklooflodge.co.za` (CNAME to the `*.pages.dev` project). The bare domain 301-redirects to www.
+- `_headers` sets caching and keeps `*.pages.dev` previews out of Google.
 
 ## Staging vs live
 
-- On any host other than `sederklooflodge.co.za`, pages add `noindex` and skip Google Analytics, so staging is not indexed and doesn't count in the lodge's stats.
-- On the live domain, Google Analytics (`G-4QT7G3JRPF`) loads and pages are indexable. Nothing needs changing at go-live.
+- On any host other than `sederklooflodge.co.za` / `www.`, pages add `noindex` and skip Google Analytics.
+- On the live domain, Google Analytics (`G-4QT7G3JRPF`) loads and pages are indexable.
+- Canonical / og:url tags point to `https://www.sederklooflodge.co.za/`.
 
-## Known gaps
+## Contact form
 
-- Enquiry form isn't connected: set `FORM_ENDPOINT` at the top of `assets/js/main.js` to a form service URL.
-- Booking links go to NightsBridge (`book.nightsbridge.com/17306`); no embedded widget yet.
+Uses mailto: the visitor's email app opens with the enquiry filled in. Set `ENQUIRY_EMAIL` at the top of `assets/js/main.js`.
+
+## Booking
+
+Booking links go to NightsBridge (`book.nightsbridge.com/17306`).
