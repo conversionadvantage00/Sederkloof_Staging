@@ -3,9 +3,12 @@
   "use strict";
 
   /* ------------------------------------------------------------------
-     Contact form: opens the visitor's email app with the enquiry
-     filled in, addressed to ENQUIRY_EMAIL.
+     Contact form
+     FORM_ENDPOINT: Conversion Advantage forms (site: Sederkloof).
+     ENQUIRY_EMAIL: backup only. If sending fails, the visitor's email
+       app opens with the enquiry filled in, addressed here.
   ------------------------------------------------------------------ */
+  var FORM_ENDPOINT = "https://forms.conversionadvantage.com/f/y9khkn7hm7";
   var ENQUIRY_EMAIL = "hbekker@moonstoneinfo.com,simone@conversionadvantage.com";
 
   var doc = document;
@@ -358,16 +361,31 @@
         "&body=" + encodeURIComponent(lines.join("\n"));
     };
 
+    var mailtoFallback = function (lead) {
+      var href = mailtoLink();
+      show(lead + ' <a href="' + href + '">Email it to us instead</a>, call us on ' + phone + " or " + book + ".");
+      window.location.href = href;
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (val("website")) return; // honeypot: bots fill this, people don't
-      if (!ENQUIRY_EMAIL) {
-        show("Please call us on " + phone + " or " + book + ".");
-        return;
-      }
-      var href = mailtoLink();
-      show('Opening your email app… If nothing happens, <a href="' + href + '">click here</a>, call us on ' + phone + " or " + book + ".");
-      window.location.href = href;
+      if (val("_gotcha")) return; // spam trap: bots fill this, people don't
+
+      var data = new FormData(form);
+      data.append("_subject", "Website enquiry - " + val("name"));
+
+      var btn = $('button[type="submit"]', form);
+      btn.disabled = true;
+      show("Sending…");
+      fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json(); })
+        .then(function (out) {
+          if (!out || !out.ok) throw new Error("not sent");
+          form.reset();
+          show("Thank you, your enquiry has been sent. We'll be in touch soon.");
+        })
+        .catch(function () { mailtoFallback("Sorry, your message didn't send."); })
+        .then(function () { btn.disabled = false; });
     });
   }
 

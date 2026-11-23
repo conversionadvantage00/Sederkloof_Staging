@@ -37,7 +37,7 @@ No build step, no dependencies. Open `index.html` locally or push the folder as-
 
 ## Contact form
 
-Uses mailto: the visitor's email app opens with the enquiry filled in. Set `ENQUIRY_EMAIL` at the top of `assets/js/main.js`.
+Posts to Conversion Advantage forms (`FORM_ENDPOINT` in `assets/js/main.js`, site "Sederkloof"). Visitors stay on the page and see a thank-you message. If sending fails, their email app opens with the enquiry filled in, addressed to `ENQUIRY_EMAIL`.
 
 ## Booking
 
