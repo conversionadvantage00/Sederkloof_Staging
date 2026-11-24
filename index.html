@@ -2,40 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Sederkloof Lodge | Luxury Wilderness Escape - Baviaanskloof</title>
   <meta name="description" content="Escape to Sederkloof Lodge, a luxury retreat in the Baviaanskloof Wilderness - South Africa. Experience breathtaking views, exclusivity, and world-class hospitality.">
   <link rel="canonical" href="https://www.sederklooflodge.co.za/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sederkloof Lodge | Luxury Wilderness Escape - Baviaanskloof">
-  <meta property="og:description" content="A luxury retreat in the Baviaanskloof Wilderness, South Africa.">
+  <meta property="og:description" content="Escape to Sederkloof Lodge, a luxury retreat in the Baviaanskloof Wilderness - South Africa. Experience breathtaking views, exclusivity, and world-class hospitality.">
   <meta property="og:image" content="https://www.sederklooflodge.co.za/assets/images/social/sederkloof-share-hero.jpg">
-  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Sederkloof Lodge chalets on a hillside in the Baviaanskloof mountains">
   <meta property="og:site_name" content="Sederkloof Lodge">
-  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://www.sederklooflodge.co.za/">
-  <meta name="theme-color" content="#2a241f">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1d1a16">
   <link rel="icon" href="assets/images/Branding/03.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261120-8">
-  <script>/* hide reveal content before first paint; main.js takes over (falls back to visible if it never loads) */
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261124-2">
+  <link rel="preload" as="image" href="assets/images/Hero-and-Backgrounds/02.webp">
+  <script>
+    /* Reveal-on-scroll: hide before first paint; main.js takes over (falls back to visible). */
     if (!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) && "IntersectionObserver" in window) {
       document.documentElement.classList.add("motion");
       setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove("motion"); }, 4000);
     }
-  </script>
-  <link rel="preload" as="image" href="assets/images/Hero-and-Backgrounds/02.webp">
-
-  <script>
-    /* Analytics only on the live domain; every other host (Cloudflare preview, localhost) gets noindex instead. */
+    /* Analytics (GA4) only on the live domain; every other host is noindex and logs events to the console instead. */
     (function () {
       var PROD = "sederklooflodge.co.za";
-      if (location.hostname.replace(/^www\./, "") === PROD) {
+      window.SK_PROD = location.hostname.replace(/^www\./, "") === PROD;
+      if (window.SK_PROD) {
         var s = document.createElement("script");
         s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-4QT7G3JRPF";
         document.head.appendChild(s);
@@ -49,7 +47,6 @@
       }
     })();
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,214 +64,288 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Sederkloof Lodge home">
-        <img src="assets/images/Branding/02.webp" alt="" width="42" height="42">
+        <img src="assets/images/Branding/02.webp" alt="" width="34" height="34">
         <span class="brand__name">Sederkloof<small>Lodge · Baviaanskloof</small></span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="rooms.html">Our Rooms</a>
-        <a href="#experiences">Experiences</a>
-        <a href="#nature">Nature</a>
-        <a href="#gallery">Gallery</a>
-        <a href="contact.html">Contact</a>
-        <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
+        <a href="rooms.html" style="--i:0">Stays</a><a href="#experiences" style="--i:1">Experiences</a><a href="#nature" style="--i:2">Nature</a><a href="#plan" style="--i:3">Plan your trip</a><a href="#gallery" style="--i:4">Gallery</a><a href="contact.html" style="--i:5">Contact</a>
       </nav>
+      <div class="header-actions">
+        <a class="header-call" href="tel:+27877004334" data-track="click_call" data-placement="header" aria-label="Call +27 87 700 4334"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>+27 87 700 4334</span></a>
+        <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="header">Book a stay</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
+    <!-- HERO: name, promise, dates. Booking is one step from the first screen. -->
     <section class="hero">
-      <img class="hero__bg" src="assets/images/Hero-and-Backgrounds/02.webp" alt="Sederkloof Lodge's stone-and-glass chalets on a hillside in the Baviaanskloof mountains" width="1920" height="823" fetchpriority="high">
-      <div class="container hero__content">
-        <span class="eyebrow">Baviaanskloof Wilderness · South Africa</span>
-        <h1>Sederkloof Lodge</h1>
-        <p>A luxury wilderness escape in the heart of the Baviaanskloof.</p>
-        <div class="btn-row">
-          <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
-          <a class="btn btn--light" href="rooms.html">View Our Rooms</a>
+      <div class="hero__media"><img src="assets/images/Hero-and-Backgrounds/02.webp" alt="Sederkloof Lodge’s stone-and-glass chalets on a hillside in the Baviaanskloof mountains" width="1920" height="823" fetchpriority="high"></div>
+      <div class="container hero__inner">
+        <span class="kicker on-image">Baviaanskloof Wilderness · South Africa</span>
+        <h1 class="hero__title">Sederkloof</h1>
+        <div class="hero__row">
+          <div>
+            <p class="hero__sub">A luxury wilderness escape in the heart of the Baviaanskloof. Eight private hideaways, one UNESCO World Heritage valley.</p>
+            <div class="hero__meta"><span>~3 h from George</span><span>Self-catering chalets</span><span>Off-grid by design</span></div>
+          </div>
+          <form class="book-bar" data-book-form data-placement="hero" novalidate>
+            <div class="book-bar__field"><label for="ci-hero">Check in</label><input id="ci-hero" name="checkin" type="date" required></div>
+            <div class="book-bar__field"><label for="co-hero">Check out</label><input id="co-hero" name="checkout" type="date" required></div>
+            <button class="btn btn--clay" type="submit">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <p class="book-bar__note"><span>Live rates &amp; availability</span><b data-nights></b></p>
+          </form>
         </div>
       </div>
-      <span class="scroll-cue" aria-hidden="true"></span>
     </section>
 
-    <!-- ============ WELCOME ============ -->
+    <!-- WELCOME: the promise in one line, then the facts that make it real -->
     <section class="section" id="welcome">
-      <div class="container split">
-        <div class="split__media split__media--stack reveal">
-          <img src="assets/images/Hero-and-Backgrounds/11.webp" alt="A Sederkloof chalet with its pool set into the hillside" width="560" height="635" loading="lazy">
-          <img src="assets/images/Gallery/01.webp" alt="Wooden deck and pool looking out over the valley" width="560" height="635" loading="lazy">
+      <div class="container">
+        <span class="kicker reveal">Welcome to Sederkloof</span>
+        <p class="statement" data-words>Stone-and-glass chalets on a hillside in the <span class="accent">Baviaanskloof</span>. Mountains on every side, rock pools below, and more stars than you’ve <span class="accent">ever seen</span>.</p>
+        <div class="facts">
+          <div class="fact reveal" style="--d:0"><strong>8</strong><span>Private chalets, tents &amp; a cottage</span></div>
+          <div class="fact reveal" style="--d:1"><strong>310+</strong><span>Recorded bird species</span></div>
+          <div class="fact reveal" style="--d:2"><strong>56</strong><span>Reptile species among the rocks</span></div>
+          <div class="fact reveal" style="--d:3"><strong>UNESCO</strong><span>World Heritage Site</span></div>
         </div>
-        <div class="reveal">
-          <span class="eyebrow">Welcome</span>
-          <h2>Welcome to Sederkloof Lodge</h2>
-          <p class="lead">Nestled in the heart of the breathtaking Baviaanskloof Wilderness, Sederkloof Lodge offers an unparalleled escape into nature’s beauty.</p>
-          <p>Designed to blend seamlessly with its surroundings, the lodge provides luxurious comfort while preserving the pristine tranquility of the landscape. Whether you seek relaxation or adventure, Sederkloof Lodge promises an unforgettable experience in the heart of South Africa’s untouched wilderness.</p>
-          <div class="btn-row">
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
+      </div>
+    </section>
+
+    <!-- STAYS: the decision, early. Filter, compare, check dates. -->
+    <section class="section section--bone" id="stays">
+      <div class="container">
+        <div class="head">
+          <div class="reveal">
+            <span class="kicker">Luxury accommodation</span>
+            <h2>Choose your <em>hideaway</em></h2>
+          </div>
+          <div class="reveal" style="--d:1">
+            <p class="lead">Private stone-and-glass chalets, each designed to make the most of the views, plus safari tents under the trees and a secluded bush cottage. Every unit is self-catering, elegantly furnished and en-suite.</p>
+          </div>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter stays">
+          <button class="filter" data-filter="all" aria-pressed="true">All stays<sup>8</sup></button>
+          <button class="filter" data-filter="chalet" aria-pressed="false">Chalets<sup>6</sup></button>
+          <button class="filter" data-filter="tent" aria-pressed="false">Safari tents</button>
+          <button class="filter" data-filter="cottage" aria-pressed="false">Bush cottage</button>
+        </div>
+        <p class="swipe-hint">Swipe to see all stays</p>
+        <div class="stays" data-stays>
+          <article class="stay reveal" data-kind="chalet" style="--d:0">
+            <a class="stay__media" href="rooms.html#aardvarks-entry" data-track="view_item" data-placement="home_stays" data-stay="Aardvark’s Entry">
+              <img src="assets/images/Rooms/Aardvark-s-Entry_01.webp" alt="Aardvark’s Entry bedroom with twin beds and lounge chairs" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 01</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#aardvarks-entry" data-track="view_item" data-placement="home_stays" data-stay="Aardvark’s Entry">Aardvark’s Entry</a></h3>
+              <p class="stay__meta">Twin or double · Soaking tub · Outdoor shower</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#aardvarks-entry" data-track="view_item" data-placement="home_stays" data-stay="Aardvark’s Entry">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Aardvark’s Entry">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="chalet" style="--d:1">
+            <a class="stay__media" href="rooms.html#eagles-nest" data-track="view_item" data-placement="home_stays" data-stay="Eagle’s Nest">
+              <img src="assets/images/Rooms/Eagle-s-Nest_01.webp" alt="Eagle’s Nest bedroom with large windows" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 02</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#eagles-nest" data-track="view_item" data-placement="home_stays" data-stay="Eagle’s Nest">Eagle’s Nest</a></h3>
+              <p class="stay__meta">Twin or double · Elevated views · Outdoor shower</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#eagles-nest" data-track="view_item" data-placement="home_stays" data-stay="Eagle’s Nest">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Eagle’s Nest">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="chalet" style="--d:2">
+            <a class="stay__media" href="rooms.html#leopards-lair" data-track="view_item" data-placement="home_stays" data-stay="Leopard’s Lair">
+              <img src="assets/images/Rooms/Leopard-s-Lair_01.webp" alt="Leopard’s Lair bedroom with sleigh bed and basin" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 03</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#leopards-lair" data-track="view_item" data-placement="home_stays" data-stay="Leopard’s Lair">Leopard’s Lair</a></h3>
+              <p class="stay__meta">Queen sleigh bed · Secluded · Indoor bath</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#leopards-lair" data-track="view_item" data-placement="home_stays" data-stay="Leopard’s Lair">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Leopard’s Lair">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="chalet" style="--d:3">
+            <a class="stay__media" href="rooms.html#kudu-crossroad" data-track="view_item" data-placement="home_stays" data-stay="Kudu Crossroad">
+              <img src="assets/images/Rooms/Kudu-Crossroad_01.webp" alt="Kudu Crossroad bedroom" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 04</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#kudu-crossroad" data-track="view_item" data-placement="home_stays" data-stay="Kudu Crossroad">Kudu Crossroad</a></h3>
+              <p class="stay__meta">Queen sleigh bed · Shaded terrace · Outdoor shower</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#kudu-crossroad" data-track="view_item" data-placement="home_stays" data-stay="Kudu Crossroad">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Kudu Crossroad">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="chalet" style="--d:0">
+            <a class="stay__media" href="rooms.html#porcupines-den" data-track="view_item" data-placement="home_stays" data-stay="Porcupine’s Den">
+              <img src="assets/images/Rooms/Porcupine-s-Den_01.webp" alt="Porcupine’s Den with freestanding tub beside the bed" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 05</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#porcupines-den" data-track="view_item" data-placement="home_stays" data-stay="Porcupine’s Den">Porcupine’s Den</a></h3>
+              <p class="stay__meta">Queen sleigh bed · Soaking tub · Big windows</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#porcupines-den" data-track="view_item" data-placement="home_stays" data-stay="Porcupine’s Den">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Porcupine’s Den">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="chalet" style="--d:1">
+            <a class="stay__media" href="rooms.html#heavens-haven" data-track="view_item" data-placement="home_stays" data-stay="Heaven’s Haven">
+              <img src="assets/images/Rooms/Heaven-s-Haven_01.webp" alt="Heaven’s Haven with canopy bed" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Chalet 06</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#heavens-haven" data-track="view_item" data-placement="home_stays" data-stay="Heaven’s Haven">Heaven’s Haven</a></h3>
+              <p class="stay__meta">Queen canopy bed · Expansive deck</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#heavens-haven" data-track="view_item" data-placement="home_stays" data-stay="Heaven’s Haven">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="home_stays" data-stay="Heaven’s Haven">Check dates</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="tent" style="--d:2">
+            <a class="stay__media" href="rooms.html#camp-naguna" data-track="view_item" data-placement="home_stays" data-stay="Camp Naguna">
+              <img src="assets/images/Rooms/Camp-Naguna_01.webp" alt="Canvas safari tent at Camp Naguna" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Safari tents</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#camp-naguna" data-track="view_item" data-placement="home_stays" data-stay="Camp Naguna">Camp Naguna</a></h3>
+              <p class="stay__meta">Canvas tents · Boma & firepit · Small groups</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#camp-naguna" data-track="view_item" data-placement="home_stays" data-stay="Camp Naguna">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--ghost btn--sm" href="contact.html?stay=Camp%20Naguna#enquire" data-track="enquire_click" data-placement="home_stays" data-stay="Camp Naguna">Enquire</a>
+              </div>
+            </div>
+          </article>
+          <article class="stay reveal" data-kind="cottage" style="--d:3">
+            <a class="stay__media" href="rooms.html#bush-cottage" data-track="view_item" data-placement="home_stays" data-stay="Bush Cottage">
+              <img src="assets/images/Rooms/Bush-Cottage_01.webp" alt="Bush Cottage bedroom with window onto the trees" width="410" height="305" loading="lazy">
+              <span class="stay__tag">Cottage</span>
+            </a>
+            <div class="stay__body">
+              <h3 class="stay__name"><a href="rooms.html#bush-cottage" data-track="view_item" data-placement="home_stays" data-stay="Bush Cottage">Bush Cottage</a></h3>
+              <p class="stay__meta">Kitchenette · Private braai · Small families</p>
+              <div class="stay__actions">
+                <a class="link" href="rooms.html#bush-cottage" data-track="view_item" data-placement="home_stays" data-stay="Bush Cottage">View stay <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+                <a class="btn btn--ghost btn--sm" href="contact.html?stay=Bush%20Cottage#enquire" data-track="enquire_click" data-placement="home_stays" data-stay="Bush Cottage">Enquire</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="btn-row" style="margin-top:48px">
+          <a class="btn btn--ghost" href="rooms.html" data-track="view_item_list" data-placement="home_stays">Compare all stays <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCES: why the valley, as a swipeable rail -->
+    <section class="section section--dark" id="experiences">
+      <div class="container">
+        <div class="head">
+          <div class="reveal">
+            <span class="kicker">Activities &amp; experiences</span>
+            <h2>Days out, <em>nights in</em></h2>
+          </div>
+          <div class="reveal" style="--d:1">
+            <p class="lead">Scenic trails to hidden waterfalls and ancient rock art, 4x4 excursions through mountain passes, birding, and skies with no light pollution at all.</p>
+            <div class="rail-nav" data-rail-nav><button class="rail-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="rail-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+          </div>
+        </div>
+        <div class="rail-wrap">
+          <div class="rail" data-rail>
+          <button class="xp" data-detail="d-hiking" data-track="select_content" data-content="experience" data-item="Hiking Trails">
+            <img src="assets/images/Activities/Hiking-Trails_04.webp" alt="" width="410" height="305" loading="lazy">
+            <span class="xp__n">01</span>
+            <span class="xp__body">
+              <span class="xp__title">Hiking Trails</span>
+              <span class="xp__desc">Trails for casual walkers and seasoned hikers, through mountain ranges, deep gorges and rugged terrain.</span>
+              <span class="xp__cta">Discover <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <button class="xp" data-detail="d-sewefontein" data-track="select_content" data-content="experience" data-item="Sewefontein Fountains">
+            <img src="assets/images/Activities/Sewefontein-Fountains_01.webp" alt="" width="410" height="305" loading="lazy">
+            <span class="xp__n">02</span>
+            <span class="xp__body">
+              <span class="xp__title">Sewefontein Fountains</span>
+              <span class="xp__desc">A hidden gem a short drive away: crystal-clear springs bubbling from the earth.</span>
+              <span class="xp__cta">Discover <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <button class="xp" data-detail="d-excursion" data-track="select_content" data-content="experience" data-item="Full Day Excursion">
+            <img src="assets/images/Activities/Full-Day-Excursion_01.webp" alt="" width="410" height="305" loading="lazy">
+            <span class="xp__n">03</span>
+            <span class="xp__body">
+              <span class="xp__title">Full Day Excursion</span>
+              <span class="xp__desc">Remote mountain passes, historical sites, hidden caves and breathtaking viewpoints.</span>
+              <span class="xp__cta">Discover <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <button class="xp" data-detail="d-stargazing" data-track="select_content" data-content="experience" data-item="Stargazing">
+            <img src="assets/images/Activities/Stargazing_01.webp" alt="" width="410" height="305" loading="lazy">
+            <span class="xp__n">04</span>
+            <span class="xp__body">
+              <span class="xp__title">Stargazing</span>
+              <span class="xp__desc">Far from city lights: the Milky Way, shooting stars and planets from your own deck.</span>
+              <span class="xp__cta">Discover <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ LOCATION ============ -->
-    <section class="section section--sand" id="location">
-      <div class="container split split--reverse">
-        <div class="split__media split__media--stack reveal">
+    <!-- LOCATION + UNPLUGGED + CONSERVATION: set expectations honestly -->
+    <section class="section" id="location">
+      <div class="container split">
+        <div class="duo reveal">
           <img src="assets/images/Hero-and-Backgrounds/09.webp" alt="View across the valley to the lodge and the surrounding mountain ranges" width="560" height="635" loading="lazy">
           <img src="assets/images/Hero-and-Backgrounds/16.webp" alt="Ancient rock art in the Baviaanskloof" width="560" height="635" loading="lazy">
         </div>
-        <div class="reveal">
-          <span class="eyebrow">Our Unique Location</span>
-          <h2>A Secluded Wilderness Escape in the Heart of Baviaanskloof</h2>
-          <p>Sederkloof Lodge is situated within the vast and awe-inspiring Baviaanskloof Nature Reserve, a UNESCO World Heritage Site known for its rich biodiversity, dramatic mountain ranges, and unspoiled natural beauty.</p>
-          <p>This secluded sanctuary is home to a diverse range of wildlife, indigenous flora, and ancient rock formations, offering visitors a rare opportunity to reconnect with nature in a truly spectacular setting.</p>
-          <div class="facts">
-            <div><strong>310+</strong><span>Bird species</span></div>
-            <div><strong>56</strong><span>Reptile species</span></div>
-            <div><strong>UNESCO</strong><span>World Heritage Site</span></div>
-          </div>
-          <a class="text-link" href="contact.html#getting-here">Getting here</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ACCOMMODATION ============ -->
-    <section class="section" id="accommodation">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Luxury Accommodation</span>
-            <h2>Where Comfort Meets the Wild</h2>
-          </div>
-          <div class="section-head__intro">
-            <p class="lead">Stay in style &amp; serenity.</p>
-            <p>Our exclusive lodge features private stone-and-glass chalets, each thoughtfully designed to maximize panoramic views of the rugged landscape. Each self-catering unit is elegantly furnished, offering comfortable beds, en-suite bathrooms, and private decks where guests can unwind while immersing themselves in the natural surroundings.</p>
-          </div>
-        </div>
-        <div class="grid grid--4 reveal">
-          <a class="room-tile" href="rooms.html#aardvarks-entry"><img src="assets/images/Rooms/Aardvark-s-Entry_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Aardvark’s Entry</span></a>
-          <a class="room-tile" href="rooms.html#eagles-nest"><img src="assets/images/Rooms/Eagle-s-Nest_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Eagle’s Nest</span></a>
-          <a class="room-tile" href="rooms.html#leopards-lair"><img src="assets/images/Rooms/Leopard-s-Lair_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Leopard’s Lair</span></a>
-          <a class="room-tile" href="rooms.html#kudu-crossroad"><img src="assets/images/Rooms/Kudu-Crossroad_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Kudu Crossroad</span></a>
-          <a class="room-tile" href="rooms.html#porcupines-den"><img src="assets/images/Rooms/Porcupine-s-Den_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Porcupine’s Den</span></a>
-          <a class="room-tile" href="rooms.html#heavens-haven"><img src="assets/images/Rooms/Heaven-s-Haven_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Chalet</small>Heaven’s Haven</span></a>
-          <a class="room-tile" href="rooms.html#camp-naguna"><img src="assets/images/Rooms/Camp-Naguna_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Safari tents</small>Camp Naguna</span></a>
-          <a class="room-tile" href="rooms.html#bush-cottage"><img src="assets/images/Rooms/Bush-Cottage_01.webp" alt="" width="410" height="305" loading="lazy"><span><small>Self-contained cottage</small>Bush Cottage</span></a>
-        </div>
-        <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn--ghost" href="rooms.html">Explore All Rooms</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SPECIALS (generic) ============ -->
-    <section class="section section--sand" id="specials">
-      <div class="container offer">
-        <div class="offer__images reveal">
-          <img src="assets/images/Special-Offers/01.webp" alt="Deck with a freestanding bath overlooking the valley" width="560" height="635" loading="lazy">
-          <img src="assets/images/Special-Offers/02.webp" alt="Breakfast table set beside the pool" width="560" height="635" loading="lazy">
-          <img src="assets/images/Special-Offers/03.webp" alt="Bedroom at Sederkloof Lodge" width="560" height="635" loading="lazy">
-        </div>
-        <div class="reveal">
-          <span class="eyebrow">Specials</span>
-          <h2>Exclusive Getaways at Unbeatable Prices</h2>
-          <p>We run seasonal specials throughout the year. See today’s rates and availability on our booking page, or give us a call and we’ll help you find the best deal for your dates.</p>
+        <div class="reveal" style="--d:1">
+          <span class="kicker">Our unique location</span>
+          <h2>Unplugged <em>by design</em></h2>
+          <p class="lead">Sederkloof sits within the Baviaanskloof Nature Reserve, a UNESCO World Heritage Site known for its biodiversity, dramatic mountain ranges and ancient rock formations.</p>
+          <ul class="ticks">
+            <li><div><strong>No Wi-Fi, little signal</strong><span>Deliberately. Silence, starry nights, long walks and actual conversations. Staff are equipped for emergencies, so you’re never unsafe, just unplugged.</span></div></li>
+            <li><div><strong>Sustainability at the core</strong><span>Solar-powered energy and responsible water management protect the delicate ecosystem around you.</span></div></li>
+            <li><div><strong>Wild on your doorstep</strong><span>Wildlife, indigenous flora and ancient rock art, in one of South Africa’s most untouched landscapes.</span></div></li>
+          </ul>
           <div class="btn-row">
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Rates</a>
-            <a class="btn btn--ghost" href="tel:+27877004334">Call +27 87 700 4334</a>
+            <button class="link" data-detail="g-signal" data-track="select_content" data-content="guide" data-item="Cell signal">Why we’re off-grid <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
           </div>
         </div>
       </div>
     </section>
 
-    <img class="photo-strip" src="assets/images/Hero-and-Backgrounds/04.webp" alt="Waterfall, forest trail and gravel road in the Baviaanskloof" width="1920" height="823" loading="lazy">
-
-    <!-- ============ EXPERIENCES ============ -->
-    <section class="section" id="experiences">
+    <!-- NATURE GUIDE -->
+    <section class="section section--bone" id="nature">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Activities &amp; Experiences</span>
-            <h2>Adventure Awaits</h2>
+        <div class="head">
+          <div class="reveal">
+            <span class="kicker">Your nature guide</span>
+            <h2>The wild side of <em>Baviaanskloof</em></h2>
           </div>
-          <div class="section-head__intro">
-          <p class="lead">Explore, discover, and reconnect with nature.</p>
-          <p>For those seeking adventure, Sederkloof Lodge offers a range of activities that showcase the beauty of Baviaanskloof. Explore scenic hiking trails that lead to hidden waterfalls and ancient rock art, embark on thrilling 4x4 excursions through rugged mountain passes, or enjoy guided birdwatching tours that reveal the incredible diversity of the region’s avian life. Whether you prefer an active exploration or peaceful relaxation, there’s something for every nature lover.</p>
-          </div>
+          <div class="reveal" style="--d:1"><p class="lead">Wildlife checklists, the region’s plant biomes, and the medicinal plants that grow around the lodge.</p></div>
         </div>
-        <div class="exp-grid reveal">
-          <button class="exp-card" data-detail="d-hiking">
-            <img src="assets/images/Activities/Hiking-Trails_04.webp" alt="" width="410" height="305" loading="lazy">
-            <span class="exp-card__body">
-              <span class="exp-card__title">Hiking Trails</span>
-              <span class="exp-card__reveal"><span class="exp-card__desc">Scenic trails for casual walkers and seasoned hikers, through mountain ranges, deep gorges and rugged terrain.</span></span>
-              <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
-            </span>
-          </button>
-          <button class="exp-card" data-detail="d-sewefontein">
-            <img src="assets/images/Activities/Sewefontein-Fountains_01.webp" alt="" width="410" height="305" loading="lazy">
-            <span class="exp-card__body">
-              <span class="exp-card__title">Sewefontein Fountains</span>
-              <span class="exp-card__reveal"><span class="exp-card__desc">A hidden gem a short drive from the lodge: crystal-clear springs bubbling from the earth.</span></span>
-              <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
-            </span>
-          </button>
-          <button class="exp-card" data-detail="d-excursion">
-            <img src="assets/images/Activities/Full-Day-Excursion_01.webp" alt="" width="410" height="305" loading="lazy">
-            <span class="exp-card__body">
-              <span class="exp-card__title">Full Day Excursion</span>
-              <span class="exp-card__reveal"><span class="exp-card__desc">A full day through remote mountain passes, historical sites, hidden caves and breathtaking viewpoints.</span></span>
-              <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
-            </span>
-          </button>
-          <button class="exp-card" data-detail="d-stargazing">
-            <img src="assets/images/Activities/Stargazing_01.webp" alt="" width="410" height="305" loading="lazy">
-            <span class="exp-card__body">
-              <span class="exp-card__title">Stargazing</span>
-              <span class="exp-card__reveal"><span class="exp-card__desc">Far from city lights, one of the best stargazing experiences in South Africa.</span></span>
-              <span class="exp-card__cta">Learn more <span class="arrow" aria-hidden="true"></span></span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONSERVATION ============ -->
-    <section class="section section--dark" id="conservation">
-      <div class="container split split--reverse">
-        <div class="split__media reveal">
-          <img src="assets/images/Hero-and-Backgrounds/15.webp" alt="Shaded forest pool along a stream" width="560" height="635" loading="lazy">
-        </div>
-        <div class="reveal">
-          <span class="eyebrow">Conservation &amp; Sustainability</span>
-          <h2>Preserving Nature’s Beauty for Future Generations</h2>
-          <p class="lead">Committed to environmental preservation, Sederkloof Lodge operates with sustainability at its core.</p>
-          <p>Our eco-friendly practices ensure that we protect the delicate ecosystem while providing guests with a luxurious yet responsible travel experience. From solar-powered energy solutions to responsible water management, every aspect of our lodge is designed to minimize our ecological footprint.</p>
-        </div>
-      </div>
-    </section>
-
-    <img class="photo-strip" src="assets/images/Hero-and-Backgrounds/08.webp" alt="Rock formations, mountain views and trees in the Baviaanskloof" width="1920" height="823" loading="lazy">
-
-    <!-- ============ NATURE GUIDE ============ -->
-    <section class="section" id="nature">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Your Nature Guide</span>
-            <h2>The Wild Side of Baviaanskloof</h2>
-          </div>
-          <div class="section-head__intro">
-            <p class="lead">Wildlife checklists, the region’s plant biomes, and the medicinal plants that grow around the lodge.</p>
-          </div>
-        </div>
-
         <div data-tabs>
           <div class="guide-tabs" role="tablist" aria-label="Nature guide">
             <button class="guide-tab" role="tab" id="t-wildlife" aria-controls="p-wildlife" aria-selected="true">
@@ -309,19 +380,19 @@
             <div class="grid grid--4">
               <article class="card">
                 <div class="card__media"><img src="assets/images/Biodiversity-Wildlife/Mammals_04.webp" alt="Cape mountain zebra" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Mammals</h3><p>From majestic antelope species to smaller, elusive creatures.</p><button class="text-link" data-detail="d-mammals">View checklist</button></div>
+                <div class="card__body"><h3>Mammals</h3><p>From majestic antelope species to smaller, elusive creatures.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-mammals">View checklist</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Biodiversity-Wildlife/Birds_09.webp" alt="Pair of pied kingfishers on a branch" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Birds</h3><p>Over 310 recorded bird species, from sunbirds to black eagles.</p><button class="text-link" data-detail="d-birds">View checklist</button></div>
+                <div class="card__body"><h3>Birds</h3><p>Over 310 recorded bird species, from sunbirds to black eagles.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-birds">View checklist</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Biodiversity-Wildlife/Reptiles_03.webp" alt="Girdled lizard on a rock" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Reptiles</h3><p>56 reptile species, including the striking blue-spotted girdled lizard.</p><button class="text-link" data-detail="d-reptiles">View checklist</button></div>
+                <div class="card__body"><h3>Reptiles</h3><p>56 reptile species, including the striking blue-spotted girdled lizard.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-reptiles">View checklist</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Biodiversity-Wildlife/Amphibians_02.webp" alt="Frog in water among reeds" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Amphibians</h3><p>17 recorded species of frogs, toads and ghost frogs.</p><button class="text-link" data-detail="d-amphibians">View checklist</button></div>
+                <div class="card__body"><h3>Amphibians</h3><p>17 recorded species of frogs, toads and ghost frogs.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-amphibians">View checklist</button></div>
               </article>
             </div>
           </div>
@@ -331,23 +402,23 @@
             <div class="grid grid--3">
               <article class="card">
                 <div class="card__media"><img src="assets/images/Plant-Life/Biodiverse-Fynbos-Biome_01.webp" alt="Proteas in flowering fynbos" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Biodiverse Fynbos Biome</h3><p>Proteas, ericas and restios on the higher slopes, part of the Cape Floristic Region.</p><button class="text-link" data-detail="d-fynbos">Read more</button></div>
+                <div class="card__body"><h3>Biodiverse Fynbos Biome</h3><p>Proteas, ericas and restios on the higher slopes, part of the Cape Floristic Region.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-fynbos">Read more</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Plant-Life/Grassland-Savannah-Biomes_01.webp" alt="Golden grassland on the valley floor" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Grassland &amp; Savannah Biomes</h3><p>Golden grasses, scattered Acacia trees and seasonal wildflowers on the valley floor.</p><button class="text-link" data-detail="d-grassland">Read more</button></div>
+                <div class="card__body"><h3>Grassland &amp; Savannah Biomes</h3><p>Golden grasses, scattered Acacia trees and seasonal wildflowers on the valley floor.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-grassland">Read more</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Plant-Life/Subtropical-Thicket-Biome_01.webp" alt="Dense subtropical thicket with aloes" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Subtropical Thicket Biome</h3><p>Dense clusters of vegetation and Spekboom on north- and east-facing slopes.</p><button class="text-link" data-detail="d-thicket">Read more</button></div>
+                <div class="card__body"><h3>Subtropical Thicket Biome</h3><p>Dense clusters of vegetation and Spekboom on north- and east-facing slopes.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-thicket">Read more</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Plant-Life/Nama-Succulent-Karoo-Biomes_01.webp" alt="Succulent Karoo vegetation below red mountains" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>Nama &amp; Succulent Karoo Biomes</h3><p>Aloes, crassulas, mesembs and euphorbias adapted to long dry periods.</p><button class="text-link" data-detail="d-karoo">Read more</button></div>
+                <div class="card__body"><h3>Nama &amp; Succulent Karoo Biomes</h3><p>Aloes, crassulas, mesembs and euphorbias adapted to long dry periods.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-karoo">Read more</button></div>
               </article>
               <article class="card">
                 <div class="card__media"><img src="assets/images/Plant-Life/The-Forest-Biome_01.webp" alt="Ferns and trees beside a forest stream" width="410" height="305" loading="lazy"></div>
-                <div class="card__body"><h3>The Forest Biome</h3><p>Wild figs, stinkwoods and cycads deep within cool, misty gorges.</p><button class="text-link" data-detail="d-forest">Read more</button></div>
+                <div class="card__body"><h3>The Forest Biome</h3><p>Wild figs, stinkwoods and cycads deep within cool, misty gorges.</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-forest">Read more</button></div>
               </article>
             </div>
           </div>
@@ -355,18 +426,18 @@
           <!-- Medicinal plants -->
           <div class="tab-panel" role="tabpanel" id="p-medicinal" aria-labelledby="t-medicinal" hidden>
             <div class="grid grid--4">
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Aloe-ferox_01.webp" alt="Aloe ferox in flower" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Aloe ferox</h3><p class="card__latin">Aalwyn</p><button class="text-link" data-detail="m-aloe">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Boophane-disticha_01.webp" alt="Boophane disticha leaves fanning out" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Boophane disticha</h3><p class="card__latin">Gifbol, bushman poison bulb</p><button class="text-link" data-detail="m-boophane">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Carpobrotus-edulis_01.webp" alt="Pink sour fig flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Carpobrotus edulis</h3><p class="card__latin">Suurvygie, sour fig</p><button class="text-link" data-detail="m-carpobrotus">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Cotyledon-orbiculata_01.webp" alt="Orange Cotyledon orbiculata flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Cotyledon orbiculata</h3><p class="card__latin">Plakkie, pig’s ear</p><button class="text-link" data-detail="m-cotyledon">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Dodonaea-angustifolia_01.webp" alt="Glossy Dodonaea leaves" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Dodonaea angustifolia</h3><p class="card__latin">Sandolien, sand olive</p><button class="text-link" data-detail="m-dodonaea">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Ficus-sur_01.webp" alt="Wild fig leaves" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Ficus sur</h3><p class="card__latin">Wildevy, wild fig</p><button class="text-link" data-detail="m-ficus">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Grewia-robusta_01.webp" alt="Pink Grewia flower" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Grewia robusta</h3><p class="card__latin">Kruisbessie</p><button class="text-link" data-detail="m-grewia">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Leonotis-leonurus_01.webp" alt="Orange wild dagga flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Leonotis leonurus</h3><p class="card__latin">Wilde dagga</p><button class="text-link" data-detail="m-leonotis">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pappea-capenis_01.webp" alt="Jacket plum fruit" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pappea capensis</h3><p class="card__latin">Doppruim, jacket plum</p><button class="text-link" data-detail="m-pappea">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pelargonium-species_01.webp" alt="Pink Pelargonium flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pelargonium species</h3><p class="card__latin">Malva</p><button class="text-link" data-detail="m-pelargonium">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pellaea-calomelanos_01.webp" alt="Hard fern leaflets" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pellaea calomelanos</h3><p class="card__latin">Hard fern</p><button class="text-link" data-detail="m-pellaea">Read more</button></div></article>
-              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Glossary-of-Medical-Terms_04.webp" alt="Visitor with binoculars looking over the valley" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Glossary &amp; More Plants</h3><p class="card__latin">Medical terms and 20 more plants found at the lodge</p><button class="text-link" data-detail="d-glossary">Open</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Aloe-ferox_01.webp" alt="Aloe ferox in flower" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Aloe ferox</h3><p class="card__latin">Aalwyn</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-aloe">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Boophane-disticha_01.webp" alt="Boophane disticha leaves fanning out" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Boophane disticha</h3><p class="card__latin">Gifbol, bushman poison bulb</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-boophane">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Carpobrotus-edulis_01.webp" alt="Pink sour fig flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Carpobrotus edulis</h3><p class="card__latin">Suurvygie, sour fig</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-carpobrotus">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Cotyledon-orbiculata_01.webp" alt="Orange Cotyledon orbiculata flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Cotyledon orbiculata</h3><p class="card__latin">Plakkie, pig’s ear</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-cotyledon">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Dodonaea-angustifolia_01.webp" alt="Glossy Dodonaea leaves" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Dodonaea angustifolia</h3><p class="card__latin">Sandolien, sand olive</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-dodonaea">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Ficus-sur_01.webp" alt="Wild fig leaves" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Ficus sur</h3><p class="card__latin">Wildevy, wild fig</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-ficus">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Grewia-robusta_01.webp" alt="Pink Grewia flower" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Grewia robusta</h3><p class="card__latin">Kruisbessie</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-grewia">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Leonotis-leonurus_01.webp" alt="Orange wild dagga flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Leonotis leonurus</h3><p class="card__latin">Wilde dagga</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-leonotis">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pappea-capenis_01.webp" alt="Jacket plum fruit" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pappea capensis</h3><p class="card__latin">Doppruim, jacket plum</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-pappea">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pelargonium-species_01.webp" alt="Pink Pelargonium flowers" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pelargonium species</h3><p class="card__latin">Malva</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-pelargonium">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Pellaea-calomelanos_01.webp" alt="Hard fern leaflets" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Pellaea calomelanos</h3><p class="card__latin">Hard fern</p><button class="link" data-track="select_content" data-content="nature" data-detail="m-pellaea">Read more</button></div></article>
+              <article class="card"><div class="card__media"><img src="assets/images/Medicinal-Plants/Glossary-of-Medical-Terms_04.webp" alt="Visitor with binoculars looking over the valley" width="410" height="305" loading="lazy"></div><div class="card__body"><h3>Glossary &amp; More Plants</h3><p class="card__latin">Medical terms and 20 more plants found at the lodge</p><button class="link" data-track="select_content" data-content="nature" data-detail="d-glossary">Open</button></div></article>
             </div>
           </div>
           </div><!-- /tab-stage -->
@@ -374,92 +445,60 @@
       </div>
     </section>
 
-    <!-- ============ TRAVEL GUIDE ============ -->
-    <section class="section section--sand" id="travel">
+    <!-- PLAN YOUR TRIP -->
+    <section class="section" id="plan">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Travel &amp; Preparation Guide</span>
-            <h2>Before You Go</h2>
+        <div class="head">
+          <div class="reveal">
+            <span class="kicker">Travel &amp; preparation</span>
+            <h2>Before <em>you go</em></h2>
           </div>
-          <div class="section-head__intro">
-            <p class="lead">What to pack, how to get here, and what to expect once you arrive.</p>
-          </div>
+          <div class="reveal" style="--d:1"><p class="lead">How to get here, what to pack, and when to come. Everything you need to arrive relaxed.</p></div>
         </div>
-        <div class="grid grid--4 reveal">
-          <article class="card card--guide">
-            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/What-to-Pack_01.webp" alt="Dry riverbed path through the kloof" width="480" height="332" loading="lazy"></div>
-            <div class="card__body">
-              <h3>What to Pack</h3>
-              <p>Planning a stay at Sederkloof Lodge? You’re in for wide skies, mountain pools, and the sweet sound of nothing. Stick to lightweight layers, as mornings can be crisp and afternoons warm. Bring good hiking shoes or takkies for kloof walks, and don’t forget swimwear for refreshing dips in the rock pools.</p>
-              <button class="text-link" data-detail="g-pack">Read more</button>
-            </div>
-          </article>
-          <article class="card card--guide">
-            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/Getting-to-Sederkloof-Lodge_01.webp" alt="Vehicle parked beside a palm in the mountains" width="480" height="329" loading="lazy"></div>
-            <div class="card__body">
-              <h3>Getting Here</h3>
-              <p>Whether you’re coming from Port Elizabeth (around 3.5 hours) or George (about 3 hours), the drive offers winding gravel roads, changing scenery, and the kind of views that make you pull over just to take it in.</p>
-              <button class="text-link" data-detail="g-getting">Read more</button>
-            </div>
-          </article>
-          <article class="card card--guide">
-            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/Is-There-Cell-Signal-in-the-Baviaanskloof_01.webp" alt="Freestanding bath beside open windows with mountain views" width="480" height="320" loading="lazy"></div>
-            <div class="card__body">
-              <h3>Cell Signal &amp; Wi-Fi</h3>
-              <p>We’ll be straight with you: your phone won’t be doing much out here. And honestly? That’s kind of the point. There’s no Wi-Fi at Sederkloof Lodge either, and it’s deliberate.</p>
-              <button class="text-link" data-detail="g-signal">Read more</button>
-            </div>
-          </article>
-          <article class="card card--guide">
-            <div class="card__media"><img src="assets/images/Travel-Preparation-Guide/The-Best-Time-to-Visit_01.webp" alt="The lodge on a sunny hillside" width="480" height="360" loading="lazy"></div>
-            <div class="card__body">
-              <h3>The Best Time to Visit</h3>
-              <p>Whether it’s blooming fynbos or roaring waterfalls, every season in the Baviaanskloof brings its own kind of wonder, and Sederkloof Lodge is ready for it all.</p>
-              <button class="text-link" data-detail="g-season">Read more</button>
-            </div>
-          </article>
+        <p class="swipe-hint">Swipe for more</p>
+        <div class="plan">
+          <button class="plan-card reveal" style="--d:0" data-detail="g-getting" data-track="select_content" data-content="guide" data-item="Getting here"><span class="plan-card__n">01 · Getting here</span><h3>3 hours from George</h3><p>About 3.5 hours from Port Elizabeth. Gravel roads, big views, fuel up at Willowmore or Patensie.</p><span class="link">Route &amp; tips <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></button>
+          <button class="plan-card reveal" style="--d:1" data-detail="g-pack" data-track="select_content" data-content="guide" data-item="What to pack"><span class="plan-card__n">02 · What to pack</span><h3>Layers &amp; swimwear</h3><p>Crisp mornings, warm afternoons, rock pools. Good shoes, a hat and binoculars.</p><span class="link">Packing list <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></button>
+          <button class="plan-card reveal" style="--d:2" data-detail="g-season" data-track="select_content" data-content="guide" data-item="Best time to visit"><span class="plan-card__n">03 · When to come</span><h3>Every season</h3><p>Summer swims, golden autumns, fireside winters and spring wildflowers.</p><span class="link">Season guide <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></button>
+          <a class="plan-card reveal" style="--d:3" href="contact.html#map" data-track="click_directions" data-placement="home_plan"><span class="plan-card__n">04 · Find us</span><h3>Map &amp; directions</h3><p>Baviaanskloof Nature Reserve, Eastern Cape. Download your route for offline use.</p><span class="link">Open the map <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
-    <section class="section" id="gallery">
+    <!-- GALLERY -->
+    <section class="section section--tight" id="gallery">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Gallery</span>
-            <h2>A Glimpse into Paradise</h2>
-          </div>
-          <div class="section-head__intro">
-            <p class="lead">Experience Sederkloof in pictures.</p>
+        <div class="head">
+          <div class="reveal">
+            <span class="kicker">Gallery</span>
+            <h2>A glimpse into <em>paradise</em></h2>
           </div>
         </div>
-        <div class="gallery reveal">
-          <button data-lightbox="gallery" aria-label="Open image 1"><img src="assets/images/Gallery/01.webp" alt="Deck and pool overlooking the valley" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 2"><img src="assets/images/Gallery/02.webp" alt="Lounge with large windows facing the mountains" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 3"><img src="assets/images/Gallery/03.webp" alt="Guest relaxing by the pool under an umbrella" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 4"><img src="assets/images/Gallery/04.webp" alt="Chalet living area with stone walls" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 5"><img src="assets/images/Gallery/05.webp" alt="Bathroom with stone feature wall" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 6"><img src="assets/images/Gallery/06.webp" alt="Lounge with fireplace and chandelier" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 7"><img src="assets/images/Gallery/07.webp" alt="Private deck with loungers" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 8"><img src="assets/images/Gallery/08.webp" alt="Safari tent at Camp Naguna" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 9"><img src="assets/images/Gallery/09.webp" alt="Bath with a view through the trees" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="gallery" aria-label="Open image 10"><img src="assets/images/Gallery/10.webp" alt="Covered stoep with mountain view" width="560" height="635" loading="lazy"></button>
-        </div>
+        <div class="mosaic reveal"><button class="m-a" data-lightbox="gallery" aria-label="Open image 1"><img src="assets/images/Gallery/01.webp" alt="Deck and pool overlooking the valley" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="gallery" aria-label="Open image 2"><img src="assets/images/Gallery/02.webp" alt="Lounge with large windows facing the mountains" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="gallery" aria-label="Open image 3"><img src="assets/images/Gallery/03.webp" alt="Guest relaxing by the pool under an umbrella" width="560" height="635" loading="lazy"></button><button class="m-c" data-lightbox="gallery" aria-label="Open image 4"><img src="assets/images/Gallery/04.webp" alt="Chalet living area with stone walls" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="gallery" aria-label="Open image 5"><img src="assets/images/Gallery/05.webp" alt="Bathroom with stone feature wall" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="gallery" aria-label="Open image 6"><img src="assets/images/Gallery/06.webp" alt="Lounge with fireplace and chandelier" width="560" height="635" loading="lazy"></button><button class="m-c" data-lightbox="gallery" aria-label="Open image 7"><img src="assets/images/Gallery/07.webp" alt="Private deck with loungers" width="560" height="635" loading="lazy"></button><button class="m-a" data-lightbox="gallery" aria-label="Open image 8"><img src="assets/images/Gallery/08.webp" alt="Safari tent at Camp Naguna" width="560" height="635" loading="lazy"></button><button class="m-a" data-lightbox="gallery" aria-label="Open image 9"><img src="assets/images/Gallery/09.webp" alt="Bath with a view through the trees" width="560" height="635" loading="lazy"></button><button class="m-a" data-lightbox="gallery" aria-label="Open image 10"><img src="assets/images/Gallery/10.webp" alt="Covered stoep with mountain view" width="560" height="635" loading="lazy"></button></div>
       </div>
     </section>
 
-    <!-- ============ PLAN YOUR STAY ============ -->
-    <section class="banner" id="plan">
-      <img src="assets/images/Hero-and-Backgrounds/05.webp" alt="" width="1920" height="823" loading="lazy">
+    <section class="section section--tight" id="book">
       <div class="container">
-        <span class="eyebrow">Plan Your Stay</span>
-        <h2>Your Dream Wilderness Escape Starts Here</h2>
-        <p>Sederkloof Lodge offers a truly unique getaway for travelers looking to immerse themselves in nature without compromising on comfort. Whether you’re planning a romantic retreat, an adventurous escape, or a rejuvenating break, our team is dedicated to making your stay unforgettable. Book your stay today and discover the magic of Baviaanskloof.</p>
-        <div class="btn-row">
-          <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
-          <a class="btn btn--light" href="contact.html">Contact Us</a>
+        <div class="cta reveal">
+          <div class="cta__bg"><img src="assets/images/Hero-and-Backgrounds/02.webp" alt="" width="1920" height="823" loading="lazy"></div>
+          <div>
+            <span class="kicker">Plan your stay</span>
+            <h2>Your escape starts <em>with a date</em></h2>
+            <p>Pick your dates to see live rates for the chalets. We run seasonal specials through the year, so if you’re flexible, give us a call and we’ll help you find the best deal.</p>
+          </div>
+          <div class="cta__side">
+            <form class="book-bar" data-book-form data-placement="home_cta" novalidate>
+            <div class="book-bar__field"><label for="ci-home_cta">Check in</label><input id="ci-home_cta" name="checkin" type="date" required></div>
+            <div class="book-bar__field"><label for="co-home_cta">Check out</label><input id="co-home_cta" name="checkout" type="date" required></div>
+            <button class="btn btn--clay" type="submit">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <p class="book-bar__note"><span>Live rates &amp; availability</span><b data-nights></b></p>
+          </form>
+            <div class="cta__alt">
+              <span>Prefer to talk? <a href="tel:+27877004334" data-track="click_call" data-placement="home_cta">+27 87 700 4334</a></span>
+              <span><a href="contact.html#enquire" data-track="enquire_click" data-placement="home_cta">Send an enquiry</a></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -467,44 +506,44 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/images/Branding/02.webp" alt="" width="84" height="84">
-          <strong>Sederkloof Lodge</strong>
+      <div class="footer-top">
+        <div>
+          <p class="footer-word">Sederkloof<br><em>Lodge</em></p>
           <p>A luxury wilderness escape in the Baviaanskloof Nature Reserve, Eastern Cape, South Africa.</p>
         </div>
         <div>
           <h4>Explore</h4>
           <ul>
-            <li><a href="rooms.html">Our Rooms</a></li>
+            <li><a href="rooms.html">Stays</a></li>
             <li><a href="index.html#experiences">Experiences</a></li>
-            <li><a href="index.html#nature">Nature Guide</a></li>
+            <li><a href="index.html#nature">Nature guide</a></li>
+            <li><a href="index.html#plan">Plan your trip</a></li>
             <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="contact.html">Contact &amp; Directions</a></li>
           </ul>
         </div>
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li><a href="tel:+27877004334">+27 87 700 4334</a></li>
-            <li><a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book online</a></li>
-            <li><a href="contact.html#map">Find us on the map</a></li>
+            <li><a href="tel:+27877004334" data-track="click_call" data-placement="footer">+27 87 700 4334</a></li>
+            <li><a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="footer">Book online</a></li>
+            <li><a href="contact.html#enquire" data-track="enquire_click" data-placement="footer">Send an enquiry</a></li>
+            <li><a href="contact.html#map">Directions &amp; map</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>Certain creative elements incorporate intellectual property originally contributed by Anneke Cilliers, included with her permission.</p>
-        <p>Copyright © <span data-year>2026</span> Sederkloof Lodge. All rights reserved.</p>
+        <p>© <span data-year>2026</span> Sederkloof Lodge. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <div class="mobile-book">
-    <a href="tel:+27877004334">Call</a>
-    <a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
-  </div>
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:+27877004334" data-track="click_call" data-placement="mobile_bar" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    <a href="contact.html#enquire" data-track="enquire_click" data-placement="mobile_bar" aria-label="Send an enquiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></a>
+    <a class="is-primary" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="mobile_bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg> Check availability</a>
+  </nav>
 
-  <!-- ============ DIALOGS ============ -->
   <dialog id="detail" data-lenis-prevent aria-label="Details">
     <button class="dialog__close" data-close aria-label="Close">&times;</button>
     <div class="detail__content"></div>
@@ -517,7 +556,6 @@
     <button class="lightbox__nav lightbox__prev" aria-label="Previous image">&#8249;</button>
     <button class="lightbox__nav lightbox__next" aria-label="Next image">&#8250;</button>
   </dialog>
-
   <!-- ============ DETAIL CONTENT ============ -->
 
   <!-- Activities -->
@@ -856,8 +894,8 @@
     </div>
   </template>
 
-  <script src="assets/data/checklists.js?v=20261120-8" defer></script>
+  <script src="assets/data/checklists.js?v=20261124-2" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=20261120-8" defer></script>
+  <script src="assets/js/main.js?v=20261124-2" defer></script>
 </body>
 </html>

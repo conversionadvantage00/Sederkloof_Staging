@@ -1,4 +1,4 @@
-# Sederkloof Lodge website (v3)
+# Sederkloof Lodge website (v4 redesign)
 
 Static rebuild of [sederklooflodge.co.za](https://sederklooflodge.co.za/), hosted on Cloudflare Pages (auto-deploys from this repo).
 
@@ -34,6 +34,29 @@ No build step, no dependencies. Open `index.html` locally or push the folder as-
 - On any host other than `sederklooflodge.co.za` / `www.`, pages add `noindex` and skip Google Analytics.
 - On the live domain, Google Analytics (`G-4QT7G3JRPF`) loads and pages are indexable.
 - Canonical / og:url tags point to `https://www.sederklooflodge.co.za/`.
+
+## Booking flow
+
+- Every booking bar and "Book / Check dates" button sends guests to NightsBridge **with their dates**: `https://book.nightsbridge.com/17306?startdate=YYYY-MM-DD&enddate=YYYY-MM-DD`.
+- Dates picked anywhere on the site carry across pages (sessionStorage). Default suggestion: the coming Friday to Sunday.
+- The six chalets book online (NightsBridge lists them as Deluxe Twin / Deluxe Double). Camp Naguna and the Bush Cottage go to the enquiry form, pre-filled with the stay.
+
+## Measurement (GA4 `G-4QT7G3JRPF`, live domain only)
+
+| Event | When |
+|---|---|
+| `begin_booking` | Any click through to NightsBridge (placement, stay, check_in, nights) |
+| `dates_selected` | Dates changed in a booking bar |
+| `generate_lead` | Enquiry form sent successfully |
+| `form_start` / `form_error` | Enquiry form started / failed validation or send |
+| `click_call` / `click_directions` / `enquire_click` | Phone, directions, enquiry links (with placement) |
+| `view_item` / `view_item_list` | Stay viewed (rooms page scroll, stay links) |
+| `select_content` | Experiences, nature guide, travel guide, gallery |
+| `filter_stays` | Stay filter used |
+
+Mark `begin_booking`, `generate_lead` and `click_call` as **key events** in GA4 (Admin → Events).
+Off the live domain, events log to the browser console. Add `?debug=1` to any URL to see them in an on-page panel.
+
 
 ## Contact form
 

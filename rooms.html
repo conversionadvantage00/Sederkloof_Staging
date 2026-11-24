@@ -2,39 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Our Rooms | Sederkloof Lodge - Baviaanskloof</title>
-  <meta name="description" content="Private stone-and-glass chalets, safari tents at Camp Naguna and a self-contained Bush Cottage at Sederkloof Lodge in the Baviaanskloof Wilderness.">
+  <meta name="description" content="Six private stone-and-glass chalets, Camp Naguna safari tents and the Bush Cottage at Sederkloof Lodge in the Baviaanskloof.">
   <link rel="canonical" href="https://www.sederklooflodge.co.za/rooms">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Our Rooms | Sederkloof Lodge">
-  <meta property="og:description" content="Luxury self-catering chalets, safari tents and a bush cottage in the Baviaanskloof.">
+  <meta property="og:title" content="Our Rooms | Sederkloof Lodge - Baviaanskloof">
+  <meta property="og:description" content="Six private stone-and-glass chalets, Camp Naguna safari tents and the Bush Cottage at Sederkloof Lodge in the Baviaanskloof.">
   <meta property="og:image" content="https://www.sederklooflodge.co.za/assets/images/social/sederkloof-share-hero.jpg">
-  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Sederkloof Lodge chalets on a hillside in the Baviaanskloof mountains">
-  <meta property="og:url" content="https://www.sederklooflodge.co.za/rooms">
   <meta property="og:site_name" content="Sederkloof Lodge">
+  <meta property="og:url" content="https://www.sederklooflodge.co.za/rooms">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#2a241f">
+  <meta name="theme-color" content="#1d1a16">
   <link rel="icon" href="assets/images/Branding/03.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261120-8">
-  <script>/* hide reveal content before first paint; main.js takes over (falls back to visible if it never loads) */
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261124-2">
+  <link rel="preload" as="image" href="assets/images/Hero-and-Backgrounds/03.webp">
+  <script>
+    /* Reveal-on-scroll: hide before first paint; main.js takes over (falls back to visible). */
     if (!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) && "IntersectionObserver" in window) {
       document.documentElement.classList.add("motion");
       setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove("motion"); }, 4000);
     }
-  </script>
-
-  <script>
-    /* Analytics only on the live domain; every other host (Cloudflare preview, localhost) gets noindex instead. */
+    /* Analytics (GA4) only on the live domain; every other host is noindex and logs events to the console instead. */
     (function () {
       var PROD = "sederklooflodge.co.za";
-      if (location.hostname.replace(/^www\./, "") === PROD) {
+      window.SK_PROD = location.hostname.replace(/^www\./, "") === PROD;
+      if (window.SK_PROD) {
         var s = document.createElement("script");
         s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=G-4QT7G3JRPF";
         document.head.appendChild(s);
@@ -51,179 +50,186 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Sederkloof Lodge home">
-        <img src="assets/images/Branding/02.webp" alt="" width="42" height="42">
+        <img src="assets/images/Branding/02.webp" alt="" width="34" height="34">
         <span class="brand__name">Sederkloof<small>Lodge · Baviaanskloof</small></span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
       <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="rooms.html" aria-current="page">Our Rooms</a>
-        <a href="index.html#experiences">Experiences</a>
-        <a href="index.html#nature">Nature</a>
-        <a href="index.html#gallery">Gallery</a>
-        <a href="contact.html">Contact</a>
-        <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
+        <a href="rooms.html" style="--i:0" aria-current="page">Stays</a><a href="index.html#experiences" style="--i:1">Experiences</a><a href="index.html#nature" style="--i:2">Nature</a><a href="index.html#plan" style="--i:3">Plan your trip</a><a href="index.html#gallery" style="--i:4">Gallery</a><a href="contact.html" style="--i:5">Contact</a>
       </nav>
+      <div class="header-actions">
+        <a class="header-call" href="tel:+27877004334" data-track="click_call" data-placement="header" aria-label="Call +27 87 700 4334"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>+27 87 700 4334</span></a>
+        <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="header">Book a stay</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <section class="hero page-hero">
-      <img class="hero__bg" src="assets/images/Hero-and-Backgrounds/03.webp" alt="Chalet interiors and pool deck at Sederkloof Lodge" width="1920" height="823" fetchpriority="high">
-      <div class="container hero__content">
-        <span class="eyebrow">Luxury Accommodation</span>
-        <h1>Our Rooms</h1>
-        <p>Where comfort meets the wild. Stay in style &amp; serenity.</p>
+      <div class="hero__media"><img src="assets/images/Hero-and-Backgrounds/03.webp" alt="Chalet interiors and pool deck at Sederkloof Lodge" width="1920" height="823" fetchpriority="high"></div>
+      <div class="container hero__inner">
+        <span class="kicker on-image">Luxury accommodation</span>
+        <h1 class="hero__title">Stays</h1>
+        <div class="hero__row">
+          <div><p class="hero__sub">Six stone-and-glass chalets, safari tents under the trees and a secluded bush cottage. Where comfort meets the wild.</p></div>
+          <form class="book-bar" data-book-form data-placement="rooms_hero" novalidate>
+            <div class="book-bar__field"><label for="ci-rooms_hero">Check in</label><input id="ci-rooms_hero" name="checkin" type="date" required></div>
+            <div class="book-bar__field"><label for="co-rooms_hero">Check out</label><input id="co-rooms_hero" name="checkout" type="date" required></div>
+            <button class="btn btn--clay" type="submit">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <p class="book-bar__note"><span>Live rates &amp; availability</span><b data-nights></b></p>
+          </form>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-head reveal">
-        <div class="section-head__title">
-          <span class="eyebrow">Eight Ways to Stay</span>
-          <h2>Chalets, Tents &amp; a Bush Cottage</h2>
-        </div>
-        <div class="section-head__intro">
-        <p class="lead">Our exclusive lodge features private stone-and-glass chalets, each thoughtfully designed to maximize panoramic views of the rugged landscape.</p>
-        <p>Each self-catering unit is elegantly furnished, offering comfortable beds, en-suite bathrooms, and private decks where guests can unwind while immersing themselves in the natural surroundings. With a perfect blend of luxury and seclusion, our accommodations provide the ultimate retreat from the modern world.</p>
-        <nav class="room-index" aria-label="Rooms">
-          <a href="#aardvarks-entry">Aardvark’s Entry</a>
-          <a href="#eagles-nest">Eagle’s Nest</a>
-          <a href="#leopards-lair">Leopard’s Lair</a>
-          <a href="#kudu-crossroad">Kudu Crossroad</a>
-          <a href="#porcupines-den">Porcupine’s Den</a>
-          <a href="#heavens-haven">Heaven’s Haven</a>
-          <a href="#camp-naguna">Camp Naguna</a>
-          <a href="#bush-cottage">Bush Cottage</a>
-        </nav>
-        </div>
-      </div>
+    <nav class="subnav" aria-label="Stays">
+      <div class="container"><a href="#aardvarks-entry" data-sub>Aardvark’s Entry</a><a href="#eagles-nest" data-sub>Eagle’s Nest</a><a href="#leopards-lair" data-sub>Leopard’s Lair</a><a href="#kudu-crossroad" data-sub>Kudu Crossroad</a><a href="#porcupines-den" data-sub>Porcupine’s Den</a><a href="#heavens-haven" data-sub>Heaven’s Haven</a><a href="#camp-naguna" data-sub>Camp Naguna</a><a href="#bush-cottage" data-sub>Bush Cottage</a><a class="btn btn--sm" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_subnav">Check availability</a></div>
+    </nav>
 
+    <section class="section" style="padding-top:clamp(40px,5vw,72px)">
       <div class="container">
-        <article class="room" id="aardvarks-entry">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Aardvark-s-Entry_01.webp" alt="Aardvark’s Entry bedroom with twin beds and lounge chairs" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 01</span>
+        <div class="head head--stack reveal">
+          <p class="lead">Each self-catering unit is elegantly furnished, with comfortable beds, en-suite bathrooms and private decks. The six chalets book instantly online; Camp Naguna and the Bush Cottage are booked on request.</p>
+        </div>
+        
+        <article class="room" id="aardvarks-entry" data-room="Aardvark’s Entry">
+          <button class="room__media reveal reveal-img" data-lightbox="room-aardvarks-entry" aria-label="Enlarge photo of Aardvark’s Entry"><img src="assets/images/Rooms/Aardvark-s-Entry_01.webp" alt="Aardvark’s Entry bedroom with twin beds and lounge chairs" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 01</span>
             <h2>Aardvark’s Entry</h2>
+            <p class="room__best"><b>Best for</b> · Friends or couples: twin or double setup</p>
             <p>Set against a backdrop of striking rock formations, Aardvark’s Entry features a twin or double bed setup, an open-plan living space, and a private deck with lounge chairs. A stone-clad en-suite bathroom includes an indulgent soaking tub and a refreshing outdoor shower, ensuring a peaceful and rejuvenating stay.</p>
-            <ul class="room__features"><li>Twin or double</li><li>Open-plan living</li><li>Private deck</li><li>Soaking tub</li><li>Outdoor shower</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Twin or double</li><li class="chip">Open-plan living</li><li class="chip">Private deck</li><li class="chip">Soaking tub</li><li class="chip">Outdoor shower</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Aardvark’s Entry">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Aardvark%27s%20Entry#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Aardvark’s Entry">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="eagles-nest">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Eagle-s-Nest_01.webp" alt="Eagle’s Nest bedroom with large windows" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 02</span>
+        <article class="room" id="eagles-nest" data-room="Eagle’s Nest">
+          <button class="room__media reveal reveal-img" data-lightbox="room-eagles-nest" aria-label="Enlarge photo of Eagle’s Nest"><img src="assets/images/Rooms/Eagle-s-Nest_01.webp" alt="Eagle’s Nest bedroom with large windows" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 02</span>
             <h2>Eagle’s Nest</h2>
+            <p class="room__best"><b>Best for</b> · Views: perched on a scenic elevation</p>
             <p>Perched on a scenic elevation, Eagle’s Nest offers breathtaking views of the rugged Baviaanskloof landscape. This elegantly designed chalet features a spacious twin or double bed setup, a private deck, and a luxurious en-suite bathroom with both an indoor bath and an outdoor shower. Large windows invite natural light, creating a warm and inviting atmosphere for ultimate relaxation.</p>
-            <ul class="room__features"><li>Twin or double</li><li>Elevated views</li><li>Private deck</li><li>Indoor bath</li><li>Outdoor shower</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Twin or double</li><li class="chip">Elevated views</li><li class="chip">Private deck</li><li class="chip">Indoor bath</li><li class="chip">Outdoor shower</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Eagle’s Nest">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Eagle%27s%20Nest#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Eagle’s Nest">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="leopards-lair">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Leopard-s-Lair_01.webp" alt="Leopard’s Lair bedroom with sleigh bed and basin" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 03</span>
+        <article class="room" id="leopards-lair" data-room="Leopard’s Lair">
+          <button class="room__media reveal reveal-img" data-lightbox="room-leopards-lair" aria-label="Enlarge photo of Leopard’s Lair"><img src="assets/images/Rooms/Leopard-s-Lair_01.webp" alt="Leopard’s Lair bedroom with sleigh bed and basin" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 03</span>
             <h2>Leopard’s Lair</h2>
+            <p class="room__best"><b>Best for</b> · Privacy: tucked away in a secluded part of the lodge</p>
             <p>Tucked away in a secluded part of the lodge, Leopard’s Lair combines privacy with modern comfort. A queen-size sleigh bed, refined stone and wood finishes, and a soothing indoor bath ensure a restful stay. The outdoor lounge area offers a peaceful retreat to take in the fresh air and expansive views of the surrounding mountains.</p>
-            <ul class="room__features"><li>Queen sleigh bed</li><li>Secluded</li><li>Indoor bath</li><li>Outdoor lounge</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Queen sleigh bed</li><li class="chip">Secluded</li><li class="chip">Indoor bath</li><li class="chip">Outdoor lounge</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Leopard’s Lair">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Leopard%27s%20Lair#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Leopard’s Lair">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="kudu-crossroad">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Kudu-Crossroad_01.webp" alt="Kudu Crossroad bedroom" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 04</span>
+        <article class="room" id="kudu-crossroad" data-room="Kudu Crossroad">
+          <button class="room__media reveal reveal-img" data-lightbox="room-kudu-crossroad" aria-label="Enlarge photo of Kudu Crossroad"><img src="assets/images/Rooms/Kudu-Crossroad_01.webp" alt="Kudu Crossroad bedroom" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 04</span>
             <h2>Kudu Crossroad</h2>
+            
             <p>A harmonious blend of natural textures and modern luxury, Kudu Crossroad is designed for relaxation. The queen-size sleigh bed, private shaded terrace, and spacious en-suite bathroom create a restful and inviting atmosphere. Guests can enjoy an outdoor shower experience while immersed in the quiet beauty of the landscape.</p>
-            <ul class="room__features"><li>Queen sleigh bed</li><li>Shaded terrace</li><li>Spacious en-suite</li><li>Outdoor shower</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Queen sleigh bed</li><li class="chip">Shaded terrace</li><li class="chip">Spacious en-suite</li><li class="chip">Outdoor shower</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Kudu Crossroad">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Kudu%20Crossroad#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Kudu Crossroad">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="porcupines-den">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Porcupine-s-Den_01.webp" alt="Porcupine’s Den with freestanding tub beside the bed" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 05</span>
+        <article class="room" id="porcupines-den" data-room="Porcupine’s Den">
+          <button class="room__media reveal reveal-img" data-lightbox="room-porcupines-den" aria-label="Enlarge photo of Porcupine’s Den"><img src="assets/images/Rooms/Porcupine-s-Den_01.webp" alt="Porcupine’s Den with freestanding tub beside the bed" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 05</span>
             <h2>Porcupine’s Den</h2>
+            
             <p>With its queen-size sleigh bed, soft neutral tones, and floor-to-ceiling windows, Porcupine’s Den is a cozy sanctuary for those seeking a tranquil escape. The indoor soaking tub adds to the luxurious experience, while the spacious deck invites guests to unwind in complete serenity.</p>
-            <ul class="room__features"><li>Queen sleigh bed</li><li>Floor-to-ceiling windows</li><li>Soaking tub</li><li>Spacious deck</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Queen sleigh bed</li><li class="chip">Floor-to-ceiling windows</li><li class="chip">Soaking tub</li><li class="chip">Spacious deck</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Porcupine’s Den">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Porcupine%27s%20Den#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Porcupine’s Den">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="heavens-haven">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Heaven-s-Haven_01.webp" alt="Heaven’s Haven with canopy bed" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Chalet 06</span>
+        <article class="room" id="heavens-haven" data-room="Heaven’s Haven">
+          <button class="room__media reveal reveal-img" data-lightbox="room-heavens-haven" aria-label="Enlarge photo of Heaven’s Haven"><img src="assets/images/Rooms/Heaven-s-Haven_01.webp" alt="Heaven’s Haven with canopy bed" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Chalet 06</span>
             <h2>Heaven’s Haven</h2>
+            
             <p>A refined retreat with a queen-size canopy bed, Heaven’s Haven exudes charm and sophistication. The chalet features an elegant en-suite bathroom, an expansive deck, and stylish interiors designed to enhance comfort. Whether enjoying a morning coffee outdoors or indulging in a relaxing bath, guests can soak in the stunning surroundings in pure tranquility.</p>
-            <ul class="room__features"><li>Queen canopy bed</li><li>Elegant en-suite</li><li>Expansive deck</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            
+            <ul class="chips"><li class="chip">Queen canopy bed</li><li class="chip">Elegant en-suite</li><li class="chip">Expansive deck</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="rooms_list" data-stay="Heaven’s Haven">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="contact.html?stay=Heaven%27s%20Haven#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Heaven’s Haven">Ask a question</a></div>
+            <p class="room__note">Booked online as a Deluxe Twin or Deluxe Double room.</p>
           </div>
         </article>
-
-        <article class="room" id="camp-naguna">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Camp-Naguna_01.webp" alt="Canvas safari tent at Camp Naguna" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Safari Tents</span>
+        <article class="room" id="camp-naguna" data-room="Camp Naguna">
+          <button class="room__media reveal reveal-img" data-lightbox="room-camp-naguna" aria-label="Enlarge photo of Camp Naguna"><img src="assets/images/Rooms/Camp-Naguna_01.webp" alt="Canvas safari tent at Camp Naguna" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Safari tents</span>
             <h2>Camp Naguna</h2>
+            <p class="room__best"><b>Best for</b> · Adventurous travellers, couples and small groups</p>
             <p>For those seeking an immersive bush experience, Camp Naguna offers a true safari-style retreat. Nestled beneath the trees, our comfortable canvas tents provide a blend of rustic charm and modern convenience. Each tent is equipped with cozy beds, bedside lighting, and storage space, ensuring a peaceful night’s sleep surrounded by nature.</p>
-            <p>The camp features a shared outdoor boma and firepit, where guests can gather under the stars, as well as communal bathroom facilities with hot showers. Whether you’re listening to the distant call of a jackal or waking up to birdsong, Camp Naguna brings you closer to the wild in the most serene way.</p>
-            <p>Ideal for adventurous travellers, couples, and small groups, this is an opportunity to experience the beauty of the bush without compromising on comfort.</p>
-            <ul class="room__features"><li>Canvas tents</li><li>Shared boma &amp; firepit</li><li>Communal hot showers</li><li>Great for small groups</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            <details class="room__more"><summary>More about Camp Naguna</summary><p>The camp features a shared outdoor boma and firepit, where guests can gather under the stars, as well as communal bathroom facilities with hot showers. Whether you’re listening to the distant call of a jackal or waking up to birdsong, Camp Naguna brings you closer to the wild in the most serene way.</p><p>Ideal for adventurous travellers, couples, and small groups, this is an opportunity to experience the beauty of the bush without compromising on comfort.</p></details>
+            <ul class="chips"><li class="chip">Canvas tents</li><li class="chip">Shared boma &amp; firepit</li><li class="chip">Communal hot showers</li><li class="chip">Great for small groups</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="contact.html?stay=Camp%20Naguna#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Camp Naguna">Enquire about dates <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="tel:+27877004334" data-track="click_call" data-placement="rooms_list" data-stay="Camp Naguna">Call +27 87 700 4334</a></div>
+            <p class="room__note">Booked on request: send us your dates and we’ll confirm.</p>
           </div>
         </article>
-
-        <article class="room" id="bush-cottage">
-          <div class="room__media reveal"><img src="assets/images/Rooms/Bush-Cottage_01.webp" alt="Bush Cottage bedroom with window onto the trees" width="410" height="305" loading="lazy"></div>
-          <div class="reveal">
-            <span class="room__num">Self-contained Cottage</span>
+        <article class="room" id="bush-cottage" data-room="Bush Cottage">
+          <button class="room__media reveal reveal-img" data-lightbox="room-bush-cottage" aria-label="Enlarge photo of Bush Cottage"><img src="assets/images/Rooms/Bush-Cottage_01.webp" alt="Bush Cottage bedroom with window onto the trees" width="410" height="305" loading="lazy"></button>
+          <div class="reveal" style="--d:1">
+            <span class="room__n">Cottage</span>
             <h2>Bush Cottage</h2>
+            <p class="room__best"><b>Best for</b> · Couples or small families</p>
             <p>Tucked away for ultimate privacy, the Bush Cottage is perfect for couples or small families looking for an intimate retreat. This self-contained cottage offers a spacious bedroom, en-suite bathroom, and a cozy living area designed to blend seamlessly with the surrounding wilderness.</p>
-            <p>The fully equipped kitchenette allows for self-catering convenience, while the private patio and braai area provide the perfect setting for alfresco dining under the African sky. Wake up to the sounds of nature and enjoy the tranquility of your own secluded space, all while being just a short distance from the main lodge’s amenities.</p>
-            <p>Whether you’re unwinding with a book on the veranda or exploring the bush trails nearby, the Bush Cottage offers serenity, comfort, and an unforgettable escape into nature.</p>
-            <ul class="room__features"><li>Couples &amp; small families</li><li>Kitchenette</li><li>Private patio &amp; braai</li><li>Living area</li></ul>
-            <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Check Availability</a>
+            <details class="room__more"><summary>More about Bush Cottage</summary><p>The fully equipped kitchenette allows for self-catering convenience, while the private patio and braai area provide the perfect setting for alfresco dining under the African sky. Wake up to the sounds of nature and enjoy the tranquility of your own secluded space, all while being just a short distance from the main lodge’s amenities.</p><p>Whether you’re unwinding with a book on the veranda or exploring the bush trails nearby, the Bush Cottage offers serenity, comfort, and an unforgettable escape into nature.</p></details>
+            <ul class="chips"><li class="chip">Couples &amp; small families</li><li class="chip">Kitchenette</li><li class="chip">Private patio &amp; braai</li><li class="chip">Living area</li></ul>
+            <div class="btn-row"><a class="btn btn--clay" href="contact.html?stay=Bush%20Cottage#enquire" data-track="enquire_click" data-placement="rooms_list" data-stay="Bush Cottage">Enquire about dates <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn btn--ghost" href="tel:+27877004334" data-track="click_call" data-placement="rooms_list" data-stay="Bush Cottage">Call +27 87 700 4334</a></div>
+            <p class="room__note">Booked on request: send us your dates and we’ll confirm.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section section--sand">
+    <section class="section section--bone section--tight">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head__title">
-            <span class="eyebrow">Around the Lodge</span>
-            <h2>Decks, Pools &amp; Quiet Corners</h2>
-          </div>
-        </div>
-        <div class="gallery reveal">
-          <button data-lightbox="lodge" aria-label="Open image 1"><img src="assets/images/Gallery/02.webp" alt="Lounge with large windows facing the mountains" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="lodge" aria-label="Open image 2"><img src="assets/images/Gallery/03.webp" alt="Guest relaxing by the pool under an umbrella" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="lodge" aria-label="Open image 3"><img src="assets/images/Gallery/04.webp" alt="Chalet living area with stone walls" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="lodge" aria-label="Open image 4"><img src="assets/images/Gallery/06.webp" alt="Lounge with fireplace and chandelier" width="560" height="635" loading="lazy"></button>
-          <button data-lightbox="lodge" aria-label="Open image 5"><img src="assets/images/Gallery/09.webp" alt="Bath with a view through the trees" width="560" height="635" loading="lazy"></button>
-        </div>
+        <div class="head"><div class="reveal"><span class="kicker">Around the lodge</span><h2>Decks, pools &amp; <em>quiet corners</em></h2></div></div>
+        <div class="mosaic reveal"><button class="m-a" data-lightbox="lodge" aria-label="Open image 1"><img src="assets/images/Gallery/02.webp" alt="Lounge with large windows facing the mountains" width="560" height="635" loading="lazy"></button><button class="m-a" data-lightbox="lodge" aria-label="Open image 2"><img src="assets/images/Gallery/03.webp" alt="Guest relaxing by the pool under an umbrella" width="560" height="635" loading="lazy"></button><button class="m-c" data-lightbox="lodge" aria-label="Open image 3"><img src="assets/images/Gallery/09.webp" alt="Bath with a view through the trees" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="lodge" aria-label="Open image 4"><img src="assets/images/Gallery/04.webp" alt="Chalet living area with stone walls" width="560" height="635" loading="lazy"></button><button class="m-d" data-lightbox="lodge" aria-label="Open image 5"><img src="assets/images/Gallery/06.webp" alt="Lounge with fireplace and chandelier" width="560" height="635" loading="lazy"></button></div>
       </div>
     </section>
 
-    <section class="banner">
-      <img src="assets/images/Hero-and-Backgrounds/02.webp" alt="" width="1920" height="823" loading="lazy">
+    <section class="section section--tight" id="book">
       <div class="container">
-        <span class="eyebrow">Plan Your Stay</span>
-        <h2>Your Dream Wilderness Escape Starts Here</h2>
-        <p>See live availability and rates for every chalet, tent and the Bush Cottage on our booking page, or call us and we’ll help you choose.</p>
-        <div class="btn-row">
-          <a class="btn" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
-          <a class="btn btn--light" href="tel:+27877004334">+27 87 700 4334</a>
+        <div class="cta reveal">
+          <div class="cta__bg"><img src="assets/images/Hero-and-Backgrounds/02.webp" alt="" width="1920" height="823" loading="lazy"></div>
+          <div>
+            <span class="kicker">Plan your stay</span>
+            <h2>Found the <em>one?</em></h2>
+            <p>Choose your dates to see live availability and rates for the chalets, or call us and we’ll help you pick the right stay.</p>
+          </div>
+          <div class="cta__side">
+            <form class="book-bar" data-book-form data-placement="rooms_cta" novalidate>
+            <div class="book-bar__field"><label for="ci-rooms_cta">Check in</label><input id="ci-rooms_cta" name="checkin" type="date" required></div>
+            <div class="book-bar__field"><label for="co-rooms_cta">Check out</label><input id="co-rooms_cta" name="checkout" type="date" required></div>
+            <button class="btn btn--clay" type="submit">Check availability <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <p class="book-bar__note"><span>Live rates &amp; availability</span><b data-nights></b></p>
+          </form>
+            <div class="cta__alt">
+              <span>Prefer to talk? <a href="tel:+27877004334" data-track="click_call" data-placement="rooms_cta">+27 87 700 4334</a></span>
+              <span><a href="contact.html#enquire" data-track="enquire_click" data-placement="rooms_cta">Send an enquiry</a></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -231,42 +237,48 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/images/Branding/02.webp" alt="" width="84" height="84">
-          <strong>Sederkloof Lodge</strong>
+      <div class="footer-top">
+        <div>
+          <p class="footer-word">Sederkloof<br><em>Lodge</em></p>
           <p>A luxury wilderness escape in the Baviaanskloof Nature Reserve, Eastern Cape, South Africa.</p>
         </div>
         <div>
           <h4>Explore</h4>
           <ul>
-            <li><a href="rooms.html">Our Rooms</a></li>
+            <li><a href="rooms.html">Stays</a></li>
             <li><a href="index.html#experiences">Experiences</a></li>
-            <li><a href="index.html#nature">Nature Guide</a></li>
+            <li><a href="index.html#nature">Nature guide</a></li>
+            <li><a href="index.html#plan">Plan your trip</a></li>
             <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="contact.html">Contact &amp; Directions</a></li>
           </ul>
         </div>
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li><a href="tel:+27877004334">+27 87 700 4334</a></li>
-            <li><a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book online</a></li>
-            <li><a href="contact.html#map">Find us on the map</a></li>
+            <li><a href="tel:+27877004334" data-track="click_call" data-placement="footer">+27 87 700 4334</a></li>
+            <li><a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="footer">Book online</a></li>
+            <li><a href="contact.html#enquire" data-track="enquire_click" data-placement="footer">Send an enquiry</a></li>
+            <li><a href="contact.html#map">Directions &amp; map</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>Certain creative elements incorporate intellectual property originally contributed by Anneke Cilliers, included with her permission.</p>
-        <p>Copyright © <span data-year>2026</span> Sederkloof Lodge. All rights reserved.</p>
+        <p>© <span data-year>2026</span> Sederkloof Lodge. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <div class="mobile-book">
-    <a href="tel:+27877004334">Call</a>
-    <a href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener">Book Now</a>
-  </div>
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:+27877004334" data-track="click_call" data-placement="mobile_bar" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    <a href="contact.html#enquire" data-track="enquire_click" data-placement="mobile_bar" aria-label="Send an enquiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></a>
+    <a class="is-primary" href="https://book.nightsbridge.com/17306" target="_blank" rel="noopener" data-book data-placement="mobile_bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg> Check availability</a>
+  </nav>
+
+  <dialog id="detail" data-lenis-prevent aria-label="Details">
+    <button class="dialog__close" data-close aria-label="Close">&times;</button>
+    <div class="detail__content"></div>
+  </dialog>
 
   <dialog id="lightbox" data-lenis-prevent class="lightbox" aria-label="Image viewer">
     <button class="dialog__close" data-close aria-label="Close">&times;</button>
@@ -275,8 +287,7 @@
     <button class="lightbox__nav lightbox__prev" aria-label="Previous image">&#8249;</button>
     <button class="lightbox__nav lightbox__next" aria-label="Next image">&#8250;</button>
   </dialog>
-
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=20261120-8" defer></script>
+  <script src="assets/js/main.js?v=20261124-2" defer></script>
 </body>
 </html>
