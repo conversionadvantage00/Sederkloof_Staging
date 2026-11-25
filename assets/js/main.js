@@ -9,7 +9,7 @@
        app opens with the enquiry filled in, addressed here.
   ------------------------------------------------------------------ */
   var FORM_ENDPOINT = "https://forms.conversionadvantage.com/f/y9khkn7hm7";
-  var ENQUIRY_EMAIL = "jean@conversionadvantage.com"; // TEMP for testing. Go-live: "hbekker@moonstoneinfo.com,simone@conversionadvantage.com"
+  var ENQUIRY_EMAIL = "hbekker@moonstoneinfo.com,simone@conversionadvantage.com";
 
   var doc = document;
   var $ = function (sel, ctx) { return (ctx || doc).querySelector(sel); };
